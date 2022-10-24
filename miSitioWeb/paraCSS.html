@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obligatorio</title>
+</head>
+<body>
+
+    <!--Formulario de registro del importador-->
+    <div class="container"> 
+        <div id="divFormRegistro" class="formularioRegistro">
+            <div class="col-6">
+                <h1>Registro de importador</h1>
+                <form action="/action_page.php" method="post" name="formularioRegistro">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombreImportador"><br>
+                    <label for="usuario">Usuraio:</label>
+                    <input type="text" id="usuarioImportador"><br><br>
+                    <label for="foto">Foto:</label>
+                    <input type="image"><p>Agregar img</p><br>
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="txtClaveImpo"><br>
+                    <input type="submit" id="btnRegistrar" value="Registrarme"/>
+                </form>   
+            </div>
+        </div>  
+    </div>    
+
+    <!--Inicio de sesion (importador / empresa)-->
+    <div class="container"> 
+        <div id="inicioSesion" class="inicioSesion">
+            <div class="col-6">
+                <h1>Inicio de sesion</h1>
+                <form action="/action_page.php" method="post" name="inicioSesion">
+                    <label for="usuario">Usuraio:</label>
+                    <input type="text" id="txtUsuarioImportador"><br>
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="txtClaveImpo"><br>
+                    <input type="submit" id="btnInicioSesion" value="Iniciar sesion"/>
+                </form>  
+            </div>
+        </div>
+    </div>
+
+    <!--Barra Menú importador-->
+    <div class="container">     	
+        <div class="row">
+			<div class="col-12" id="divMenuImportador">
+				<ul>
+					<li class="menuInicio"><a href="obligatorio.html#formRegistro">Inicio</a></li>
+					<li><a href="obligatorio.html#inicioSesion">Nueva solicitud</a></li>
+				</ul>
+			</div>	
+		</div>	
+    </div>
+        
+    <!--Crear una nueva solicitud de carga de su mercadería-->
+    <div class="container"> 
+        <div id="divNewSolicitud" class="newSolicitud">
+            <div class="col-6">
+                <h1>Nueva solicitud de carga</h1>
+                <form action="/action_page.php" method="post" name="formularioRegistro">
+                    <label for="mercaderia">Tipo de mercadería</label>
+                    <select id="slcTipoMercaderia">
+                        <option class="opcionDefecto" disabled selected>Selecciona una opción</option>
+                        <option value="cGeneral">CARGA_GENERAL</option>
+                        <option value="cRefrigerada">REFRIGERADO</option>
+                        <option value="cPeligrosa">CARGA_PELIGROSA</option>
+                    </select><br>
+                    <label for="descripcionMercaderia">Descripción de mercadería</label>
+				    <textarea name="descripcionMercaderia"></textarea><br>
+                    <label for="puertos">Puerto de origen</label>
+                    <select id="slcPuertos">
+                        <option class="opcionDefecto" disabled selected>Selecciona una opción</option>
+                        <option value="pChina">Puerto de China</option>
+                        <option value="pChile">Puerto de Chile</option>
+                        <option value="pEstadosUnidos">Puerto de Estados Unidos</option>
+                        <option value="pCoreaDelSur">Puerto de Corea del Sur</option>
+                        <option value="pBrasil">Puerto de Brasil</option>
+                    </select><br>
+                    <label for="cantidadContenedores">Cantidad de contenedores</label>
+                    <input type="number" id="txtCantidadContenedores"><br>
+                    <input type="submit" id="btnConfirmarSolicitud" value="Confirmar solicitud"/>
+                </form>   
+            </div>
+        </div> 
+    </div>
+    
+    <!--Solicitues pendientes y cancelacion de solicitudes-->
+    <div class="container">     
+        <div id="divSolicitudesPendientes" class="solcitudesPendientes">
+            <div class="col-12">
+                <h1>Solicitudes pendientes</h1>
+                <div class="col-3" >
+                <input type="text" onkeyup="myFuncion()" placeholder="Buscar por descripcion"><br><br><br>
+                </div>
+                <table style="width:100%" id="tableSolicitudesPendientes">
+                    <tr>
+                        <th>Nro. de solicitud</th>
+                        <th>Tipo de carga</th>
+                        <th>Descripción de mercadería</th>
+                        <th>Puerto de origen</th>
+                        <th>Cantidad de contenedores</th>
+                        <th>Cod. de empresa</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>250089</td>
+                        <td>CARGA_GENERAL</td>
+                        <td>Juguetes de 0-3 años. Osos, muñecas, autos, dinosaurios.</td>
+                        <td>Puerto de Shangai</td>
+                        <td>2</td>
+                        <td>FMO2355s</td>
+                        <td>CONFIRMADO</td>
+                        <td>
+                            <button type="button" class="btn" id="btnBorrarUno">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>267771</td>
+                        <td>REFRIGERADO</td>
+                        <td>Alimentos. Pescado congelado, frutos del mar. </td>
+                        <td>Puerto marítimo de San Antonio</td>
+                        <td>1</td>
+                        <td>AdP4549c</td>
+                        <td>PENDIENTE</td>
+                        <td>
+                            <button type="button" class="btn" id="btnBorrarDos">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>      
+            </div>
+        </div>
+    </div>
+    <script src="JS/obligatorio.js"></script>
+</body>
+</html>
