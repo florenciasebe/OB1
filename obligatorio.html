@@ -21,11 +21,9 @@
             <label for="contraseña">Contraseña</label>
             <input type="password" id="txtClaveImpo"><br><br>
             <input type="button" id="btnRegistrar" value="Registrarme"/>
-            <br><br><br><br>
-            <input type="button" id="btnYaEstoyRegistrado" value="Ya estoy registrado"/>  
         </form>    
     </div>  
-
+------------------------------------------------------------------------------------------------------------------
     <!--Inicio de sesion (importador / empresa) ejemplo 1 de commit-->
     <div id="inicioSesion" class="inicioSesion">
         <h1>Inicio de sesion</h1>
@@ -34,15 +32,36 @@
             <input type="text" id="txtUsuarioImportador"><br>
             <label for="contraseña">Contraseña</label>
             <input type="password" id="txtClaveImpo"><br>
-            <input type="submit" id="btnInicioSesion" value="Iniciar sesion"/>
+            <input type="submit" id="btnInicioSesion" value="Iniciar sesion"/><br><br>
+            <input type="button" id="btnregistrarImportador" value="Registrar importador"/>  
         </form>  
     </div>
-
-    <!--Barra Menú-->
-    <div id="divMenu">
-        prueba
+------------------------------------------------------------------------------------------------------------------
+    <br><br>
+    <!--Barra Menú importador-->
+    <div id="divMenuEmpresa">
+        Barra menú emrpesa
+        <input type="button" id="btnCrearViaje" value="Crear viaje"/>
+        <input type="button" id="btnAsignarSolicitud" value="Asignar solicitud"/> 
+        <input type="button" id="btnRollover" value="Rollover"/>
+        <input type="button" id="btnManifiesto" value="Minifiesto"/>
+        <input type="button" id="btnHabilitarImportadores" value="Habilitar importadores"/>
+        <input type="button" id="btnCargaPeligrosa" value="Carga peligrosa"/>
+        <input type="button" id="btnLogoutImportador" value="Logout"/>
+        <input type="button" id="btnMenuPrincipalImportador" value="Menú principal"/>
 	</div>	
-		
+ 
+    <br><br>
+    <!--Barra Menú Importador-->
+    <div id="divMenuImportador">
+        Barra menú importador
+        <input type="button" id="btnEstadisticas" value="Estadísticas"/>
+        <input type="button" id="btnNuevaSolicitud" value="Nueva solicitud"/> 
+        <input type="button" id="btnSolicitudespendientes" value="Solicitudes pendientes"/>
+        <input type="button" id="btnLogoutEmpresa" value="Logout"/>
+        <input type="button" id="btnMenuPrincipalEmpresa" value="Menú principal"/>
+	</div>
+    ------------------------------------------------------------------------------------------------------------------		
     <!--Crear una nueva solicitud de carga de su mercadería-->
     <div id="divNewSolicitud" class="newSolicitud">
         <h1>Nueva solicitud de carga</h1>
@@ -70,7 +89,7 @@
             <input type="submit" id="btnConfirmarSolicitud" value="Confirmar solicitud"/>
         </form>   
     </div> 
-
+    ------------------------------------------------------------------------------------------------------------------
     <!--Solicitues pendientes y cancelacion de solicitudes-->
     <div id="divSolicitudesPendientes" class="solcitudesPendientes">
         <h1>Solicitudes pendientes</h1>
@@ -114,6 +133,9 @@
             </tr>
         </table>     
     </div>
+    ------------------------------------------------------------------------------------------------------------------
+
+
 
     <script src="JS/obligatorio.js"></script>
 </body>
