@@ -93,7 +93,6 @@
     <!--Solicitues pendientes y cancelacion de solicitudes-->
     <div id="divSolicitudesPendientes" class="solcitudesPendientes">
         <h1>Solicitudes pendientes</h1>
-        <input type="text" onkeyup="myFuncion()" placeholder="Buscar por descripcion"><br><br><br>
         <table style="width:100%" id="tableSolicitudesPendientes">
             <tr>
                 <th>Nro. de solicitud</th>
@@ -103,7 +102,7 @@
                 <th>Cantidad de contenedores</th>
                 <th>Cod. de empresa</th>
                 <th>Estado</th>
-                <th></th>
+                <th style="border: 0ch;"></th>
             </tr>
             <tr>
                 <td>250089</td>
@@ -113,11 +112,7 @@
                 <td>2</td>
                 <td>FMO2355s</td>
                 <td>CONFIRMADO</td>
-                <td>
-                    <button type="button" class="btn" id="btnBorrarUno">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                </td>
+                <td><input type="button" value="cancelar" id="btnBorrarUno"></td>    
             </tr>
             <tr>
                 <td>267771</td>
@@ -128,11 +123,12 @@
                 <td>AdP4549c</td>
                 <td>PENDIENTE</td>
                 <td>
-                    <button type="button" class="btn" id="btnBorrarDos"></button>
+                    <input type="button" id="btnBorrarDos" value="cancelar">
                 </td>
             </tr>
         </table>     
     </div>
+    <br>
     ------------------------------------------------------------------------------------------------------------------
 
 
