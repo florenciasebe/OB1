@@ -28,6 +28,11 @@
     <div id="inicioSesion" class="inicioSesion">
         <h1>Inicio de sesion</h1>
         <form action="/action_page.php" method="post" name="inicioSesion">
+            <select id="slcElegirUsuario">
+                <option class="opcionDefecto" disabled selected>Selecciona una opción</option>
+                <option value="cGeneral">Soy importador</option>
+                <option value="cRefrigerada">Soy empresa</option>
+            </select><br>
             <label for="usuario">Usuraio:</label>
             <input type="text" id="txtUsuarioImportador"><br>
             <label for="contraseña">Contraseña</label>
@@ -93,6 +98,21 @@
     <!--Solicitues pendientes y cancelacion de solicitudes-->
     <div id="divSolicitudesPendientes" class="solcitudesPendientes">
         <h1>Solicitudes pendientes</h1>
+        <input type="text" id="myInput" onkeyup="myFuncion()" placeholder="Buscar por descripcion" title="Type in a name">
+        <br><br><br>
+        <style>
+            table, th, td {
+                border: 0.5px solid rgb(0, 0, 0);
+                border-collapse: collapse;
+            }
+            th {
+                background-color: rgb(235, 236, 253);
+                text-align: center;
+            }
+            td {
+                text-align: center;
+            }
+        </style>
         <table style="width:100%" id="tableSolicitudesPendientes">
             <tr>
                 <th>Nro. de solicitud</th>
