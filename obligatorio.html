@@ -150,7 +150,103 @@
     </div>
     <br>
     ------------------------------------------------------------------------------------------------------------------
-
+    <!--Estadisticas-->
+    <div id="divEstadisticas"> 
+        <h1>Información estadística:</h1>
+        <style>
+            table, th, td {
+                border: 0.5px solid rgb(0, 0, 0);
+                border-collapse: collapse;
+            }
+            th {
+                background-color: rgb(235, 236, 253);
+                text-align: center;
+            }
+            td {
+                text-align: center;
+            }
+        </style>
+        <div class="row">
+            <div class="col-12">
+                <h2>Calendario de llegadas</h2>
+                <p>En el siguiente calendraio se mostraran las fechas de llegada de tus solicitudes confirmadas. 
+                    Podrá filtrar por la descripcion de la mercadería en el siguiente buscador.</p>
+                <input type="text" id="txtApellido" value="Buscador" style="color:rgb(124, 124, 124);">
+                <br><br>
+                <table style="width:100%">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nro. de solicitud</th>
+                        <th>Tipo de carga</th>
+                        <th>Descripción de mercadería</th>
+                        <th>Puerto de origen</th>
+                        <th>Cantidad de contenedores</th>
+                        <th>Cod. de empresa</th>
+                    </tr>
+                    <tr>
+                        <td>29/11/2022</td>
+                        <td>267771</td>
+                        <td>REFRIGERADO</td>
+                        <td>Alimentos. Pescado congelado, frutos del mar. </td>
+                        <td>Puerto marítimo de San Antonio</td>
+                        <td>1</td>
+                        <td>AdP4549c</td>
+                    </tr>
+                    <tr>
+                        <td>22/03/2023</td>
+                        <td>250089</td>
+                        <td>CARGA_GENERAL</td>
+                        <td>Juguetes de 0-3 años. Osos, muñecas, autos, dinosaurios.</td>
+                        <td>Puerto de Shangai</td>
+                        <td>2</td>
+                        <td>FMO2355s</td>
+                    </tr>
+                    <tr>
+                        <td>15/04/2023</td>
+                        <td>307899</td>
+                        <td>CARGA_GENERAL</td>
+                        <td>Juguetes de 0-3 años. Osos, muñecas, autos, dinosaurios.</td>
+                        <td>Puerto de Guangzhou Harbor</td>
+                        <td>1</td>
+                        <td>JOaM4952b</td>
+                    </tr>
+                    <tr>
+                        <td>04/05/2023</td>
+                        <td>307894</td>
+                        <td>CARGA_GENERAL</td>
+                        <td>Ropa adultos</td>
+                        <td>Puerto de Singapur</td>
+                        <td>5</td>
+                        <td>FMO2355s</td>
+                    </tr>
+                </table>      
+            </div>
+        </div>  
+        <div class="row">
+            <h2>Graficos estadísticos</h2>
+            <div class="col-6">
+                <h4>Porcentaje de cancelaciones</h4>
+                <p>Porcentaje de solicitudes canceladas, contra las solicitudes confirmadas, pendientes e ignoradas.</p>
+                
+            </div>
+            <div class="col-6">
+                <h4>Porcentaje de participación</h4>
+                <p>Porcentaje de participación historica de las diferentes líneas de carga en sus solicitudes contando solo los
+                envíos (no los contenedores) y se omiten las empresas con porcentaje cero.</p>
+                  
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-3">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="col-3"><p> </p></div>
+            <div class="col-3">
+                <canvas id="myChart2"></canvas>   
+            </div>
+            <div class="col-3"></div>
+        </div>                     
+    </div>
 
 
     <script src="JS/obligatorio.js"></script>
