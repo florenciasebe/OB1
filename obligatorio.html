@@ -23,7 +23,9 @@
             <input type="button" id="btnRegistrar" value="Registrarme"/>
         </form>    
     </div>  
-------------------------------------------------------------------------------------------------------------------
+    <hr>
+
+
     <!--Inicio de sesion (importador / empresa) ejemplo 1 de commit-->
     <div id="inicioSesion" class="inicioSesion">
         <h1>Inicio de sesion</h1>
@@ -46,8 +48,9 @@
         a)capturo tipo,usuario,pass
         b)if(tipo=="imp")
            for}-->
-------------------------------------------------------------------------------------------------------------------
+    <hr>
     <br><br>
+
     <!--Barra Menú importador-->
     <div id="divMenuEmpresa">
         Barra menú emrpesa
@@ -60,8 +63,12 @@
         <input type="button" id="btnLogoutImportador" value="Logout"/>
         <input type="button" id="btnMenuPrincipalImportador" value="Menú principal"/>
 	</div>	
- 
+
+
+    <hr>
     <br><br>
+
+
     <!--Barra Menú Importador-->
     <div id="divMenuImportador">
         Barra menú importador
@@ -71,7 +78,7 @@
         <input type="button" id="btnLogoutEmpresa" value="Logout"/>
         <input type="button" id="btnMenuPrincipalEmpresa" value="Menú principal"/>
 	</div>
-    ------------------------------------------------------------------------------------------------------------------		
+    <hr>	
     <!--Crear una nueva solicitud de carga de su mercadería-->
     <div id="divNewSolicitud" class="newSolicitud">
         <h1>Nueva solicitud de carga</h1>
@@ -99,7 +106,9 @@
             <input type="submit" id="btnConfirmarSolicitud" value="Confirmar solicitud"/>
         </form>   
     </div> 
-    ------------------------------------------------------------------------------------------------------------------
+
+
+    <hr>
     <!--Solicitues pendientes y cancelacion de solicitudes-->
     <div id="divSolicitudesPendientes" class="solcitudesPendientes">
         <h1>Solicitudes pendientes</h1>
@@ -154,7 +163,9 @@
         </table>     
     </div>
     <br>
-    ------------------------------------------------------------------------------------------------------------------
+
+    <hr>
+
     <!--Estadisticas-->
 
     <!--Crear el viaje de un buque-->
@@ -172,9 +183,28 @@
             <input type="button" id="btnCrearViaje" value="Crear viaje"/>
         </form>   
     </div> 
-    ------------------------------------------------------------------------------------------------------------------
- 
 
+    <hr>
+    <!--Crear el viaje de un buque-->
+    <div id="divNewViajeBuque" class="newVije"></div>
+        <h1>Asignacion de viajes</h1>
+        Viajes disponibles:
+        <select id="slcViajes">
+            <option value="cGenal">Elija un viaje</option>
+            <option value="cGeneral">Buque1, 5 lugares disponibles</option>
+            <option value="cRefrigerada">Buque2, sin lugar disponible </option>
+            <option value="cPeligrosa">Buque5, 10 lugares disponibles</option>
+        </select>
+        <br><br>
+        Solicitudes pendiente:
+        <select id="slcSolicitudesPendientes">
+            <option value="cGeal">Elija una solicitud pendiente</option>
+            <option value="cGeneral">Nro250089, 1 contenedor</option>
+            <option value="cRefrigerada">Nro307894, 5 contenedores </option>
+        </select>
+        <br><br>
+        <input type="button" id="btnasignar" value="Asignar viaje">
+    </div>
 
     <script src="JS/obligatorio.js"></script>
 </body>
