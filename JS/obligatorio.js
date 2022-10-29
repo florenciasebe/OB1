@@ -2,15 +2,23 @@ inicio()
 
 function inicio (){
     ocultarTodo();
-    document.querySelector("#menuPrincipal").style.display="block"
+    document.querySelector("#divInicioSesion").style.display="block"
 }
 
 function ocultarTodo(){
     document.querySelector("#botonInicio").style.display="none"
-    document.querySelector("#menuPrincipal").style.display="none"
-    document.querySelector("#sectorHomero").style.display="none"
-    document.querySelector("#sectorLisa").style.display="none"
-    document.querySelector("#sectorBart").style.display="none"
+
+divFormRegistro
+divInicioSesion
+divMenuEmpresa
+divMenuImportador
+divNewSolicitud
+divSolicitudesPendientes
+divNewViajeBuque
+divAsignacionViaje
+divRollover
+divManifiesto
+dviCargasPeligrosas
 }
 
 //escuchas de botones
