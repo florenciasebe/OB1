@@ -30,4 +30,7 @@ document.querySelector("#btnCargaPeligrosa").addEventListener("click", cargaPeli
 document.querySelector("#btnLogoutEmpresa").addEventListener("click", logoutEmpresa);
 document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesionEmpresa);
 
-
+function iniciarSesionEmpresa(){
+    ocultarTodo()
+    document.querySelector("#divMenuEmpresa").style.display="block"
+}
