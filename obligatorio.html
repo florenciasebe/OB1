@@ -63,7 +63,7 @@
         <input type="button" id="btnEstadisticas" value="Estadísticas"/>
         <input type="button" id="btnNuevaSolicitud" value="Nueva solicitud"/> 
         <input type="button" id="btnSolicitudespendientes" value="Solicitudes pendientes"/>
-        <input type="button" id="btnMenuPrincipalImportador" value="Menú principal"/>
+    
 	</div>
 
 <!--Crear una nueva solicitud de carga de su mercadería-->
@@ -150,6 +150,54 @@
     <br>
 
 <!--Estadisticas-->
+    <div id="divEstadisticas"> 
+        <h1>Información estadística:</h1>
+        <style>
+            table, th, td {
+                border: 0.5px solid rgb(0, 0, 0);
+                border-collapse: collapse;
+            }
+            th {
+                background-color: rgb(235, 236, 253);
+                text-align: center;
+            }
+            td {
+                text-align: center;
+            }
+        </style>
+        <h2>Calendario de llegadas</h2>
+        <p>En el siguiente calendraio se mostraran las fechas de llegada de tus solicitudes confirmadas. 
+            Podrá filtrar por la descripcion de la mercadería en el siguiente buscador.</p>
+        <input type="text" id="txtApellido" value="Buscador" style="color:rgb(124, 124, 124);">
+        <br><br>
+        <table style="width:100%">
+            <tr>
+                <th>Fecha</th>
+                <th>Nro. de solicitud</th>
+                <th>Tipo de carga</th>
+                <th>Descripción de mercadería</th>
+                <th>Puerto de origen</th>
+                <th>Cantidad de contenedores</th>
+                <th>Cod. de empresa</th>
+            </tr>
+            <tr>
+                <td>29/11/2022</td>
+                <td>267771</td>
+                <td>REFRIGERADO</td>
+                <td>Alimentos. Pescado congelado, frutos del mar. </td>
+                <td>Puerto marítimo de San Antonio</td>
+                <td>1</td>
+                <td>AdP4549c</td>
+            </tr>
+        </table>      
+        <h2>Graficos estadísticos</h2>       
+        <h4>Porcentaje de cancelaciones</h4>
+        <p>Porcentaje de solicitudes canceladas, contra las solicitudes confirmadas, pendientes e ignoradas.</p>
+        <br>
+        <h4>Porcentaje de participación</h4>
+        <p>Porcentaje de participación historica de las diferentes líneas de carga en sus solicitudes contando solo los
+        envíos (no los contenedores) y se omiten las empresas con porcentaje cero.</p>                      
+    </div>
 
 <!--Crear el viaje de un buque-->
     <div id="divNewViajeBuque">
