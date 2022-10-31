@@ -18,6 +18,7 @@ function ocultarTodo(){
     document.querySelector("#divRollover").style.display="none"
     document.querySelector("#divManifiesto").style.display="none"
     document.querySelector("#divCargasPeligrosas").style.display="none"
+    document.querySelector("#divSalir").style.display="none"
     //agregar HABILITAR IMPORTADORES
 }
 
@@ -28,17 +29,19 @@ document.querySelector("#btnRollover").addEventListener("click", rollover);
 document.querySelector("#btnManifiesto").addEventListener("click", manifiesto);
 //document.querySelector("#btnHabilitarImportadores").addEventListener("click", habilitarImportadores);
 document.querySelector("#btnCargaPeligrosa").addEventListener("click", cargaPeligrosa);
-document.querySelector("#btnLogoutEmpresa").addEventListener("click", logoutEmpresa);
+document.querySelector("#btnLogout").addEventListener("click", logout);
 document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion);
 
 function iniciarSesion(){
     if (document.querySelector("#slcElegirUsuario").value == "e") {
         ocultarTodo()
         document.querySelector("#divMenuEmpresa").style.display="block"
+        document.querySelector("#divSalir").style.display="block"
     }
     else {
         ocultarTodo()
         document.querySelector("#divMenuImportador").style.display="block"
+        document.querySelector("#divSalir").style.display="block"
     }
 }
 
@@ -78,7 +81,7 @@ function cargaPeligrosa (){
     document.querySelector("#divCargasPeligrosas").style.display="block"
 }
 
-function logoutEmpresa (){
+function logout (){
     ocultarTodo()
     inicio()
 }
