@@ -20,7 +20,7 @@ function ocultarTodo(){
     document.querySelector("#divCargasPeligrosas").style.display="none"
     document.querySelector("#divSalir").style.display="none"
     document.querySelector("#divEstadisticas").style.display="none"
-    //agregar HABILITAR IMPORTADORES
+    document.querySelector("#divHabilitarImpo").style.display="none"
 }
 
 //escuchas de botones
@@ -28,7 +28,7 @@ document.querySelector("#btnCrearViaje").addEventListener("click", crearViaje);
 document.querySelector("#btnAsignarSolicitud").addEventListener("click", asignarSolicitud);
 document.querySelector("#btnRollover").addEventListener("click", rollover);
 document.querySelector("#btnManifiesto").addEventListener("click", manifiesto);
-//document.querySelector("#btnHabilitarImportadores").addEventListener("click", habilitarImportadores);
+document.querySelector("#btnHabilitarImportadores").addEventListener("click", habilitarImportadores);
 document.querySelector("#btnCargaPeligrosa").addEventListener("click", cargaPeligrosa);
 document.querySelector("#btnLogout").addEventListener("click", logout);
 document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion);
@@ -58,16 +58,19 @@ function logout (){
 
 function mostrarEstadisticas (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divEstadisticas").style.display="block"
 }
 function nuevaSolicitud (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divNewSolicitud").style.display="block"
 }
 function solicitudesPendientes (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divSolicitudesPendientes").style.display="block"
 }
@@ -75,31 +78,37 @@ function solicitudesPendientes (){
 // FPANTALLAS EMPRESAS // 
 function crearViaje (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divNewViajeBuque").style.display="block"
 }
 function asignarSolicitud (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divAsignacionViaje").style.display="block"
 }
 function rollover (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divRollover").style.display="block"
 }
 function manifiesto(){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divManifiesto").style.display="block"
 }
-/*function habilitarImportadores (){
+function habilitarImportadores (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
-    document.querySelector("#divRollover").style.display="block"
-}*/
+    document.querySelector("#divHabilitarImpo").style.display="block"
+}
 function cargaPeligrosa (){
     ocultarTodo()
+    document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divCargasPeligrosas").style.display="block"
 }
