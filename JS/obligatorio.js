@@ -29,11 +29,17 @@ document.querySelector("#btnManifiesto").addEventListener("click", manifiesto);
 //document.querySelector("#btnHabilitarImportadores").addEventListener("click", habilitarImportadores);
 document.querySelector("#btnCargaPeligrosa").addEventListener("click", cargaPeligrosa);
 document.querySelector("#btnLogoutEmpresa").addEventListener("click", logoutEmpresa);
-document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesionEmpresa);
+document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion);
 
-function iniciarSesionEmpresa(){
-    ocultarTodo()
-    document.querySelector("#divMenuEmpresa").style.display="block"
+function iniciarSesion(){
+    if (document.querySelector("#slcElegirUsuario").value == "e") {
+        ocultarTodo()
+        document.querySelector("#divMenuEmpresa").style.display="block"
+    }
+    else {
+        ocultarTodo()
+        document.querySelector("#divMenuImportador").style.display="block"
+    }
 }
 
 function crearViaje (){
