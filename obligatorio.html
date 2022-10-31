@@ -9,7 +9,7 @@
 <body>
 
     <!--Formulario de registro del importador 222-->
-    <div id="divFormRegistro" class="formularioRegistro">
+    <div id="divFormRegistro">
         <h1>Registro de importador</h1>
         <form action="/action_page.php" method="post" name="formularioRegistro">
             <label for="nombre">Nombre:</label>
@@ -25,7 +25,7 @@
     </div>  
 
     <!--Inicio de sesion (importador / empresa) ejemplo 1 de commit-->
-    <div id="divInicioSesion" class="inicioSesion">
+    <div id="divInicioSesion">
         <h1>Inicio de sesion</h1>
         <form action="/action_page.php" method="post" name="inicioSesion">
             <select id="slcElegirUsuario">
@@ -37,7 +37,7 @@
             <input type="text" id="txtUsuarioImportador"><br>
             <label for="contraseña">Contraseña</label>
             <input type="password" id="txtClaveImpo"><br>
-            <input type="submit" id="btnInicioSesion" value="Iniciar sesion"/><br><br>
+            <input type="button" id="btnInicioSesion" value="Iniciar sesion"/><br><br>
             <input type="button" id="btnregistrarImportador" value="Registrar importador"/>  
         </form>  
     </div>
@@ -69,7 +69,7 @@
 	</div>
 
     <!--Crear una nueva solicitud de carga de su mercadería-->
-    <div id="divNewSolicitud" class="newSolicitud">
+    <div id="divNewSolicitud">
         <h1>Nueva solicitud de carga</h1>
         <form action="/action_page.php" method="post" name="formularioRegistro">
             <label for="mercaderia">Tipo de mercadería</label>
@@ -97,7 +97,7 @@
     </div> 
 
     <!--Solicitues pendientes y cancelacion de solicitudes-->
-    <div id="divSolicitudesPendientes" class="solcitudesPendientes">
+    <div id="divSolicitudesPendientes">
         <h1>Solicitudes pendientes</h1>
         <input type="text" id="myInput" onkeyup="myFuncion()" placeholder="Buscar por descripcion" title="Type in a name">
         <br><br><br>
@@ -154,7 +154,7 @@
     <!--Estadisticas-->
 
     <!--Crear el viaje de un buque-->
-    <div id="divNewViajeBuque" class="newVije">
+    <div id="divNewViajeBuque">
         <h1>Crear viaje de un buque</h1>
         <form action="/action_page.php" method="post" name="formularioRegistro">
             <label for="txtNombreBuque">Nombre del buque</label>
@@ -170,7 +170,7 @@
     </div> 
 
     <!--Crear el viaje de un buque-->
-    <div id="divAsignacionViaje" class="asignacionViaje">
+    <div id="divAsignacionViaje">
         <h1>Asignacion de viajes</h1>
         Viajes disponibles:
         <select id="slcViajes">
@@ -191,7 +191,7 @@
     </div>
 
     <!--Rollover-->
-    <div id="divRollover" class="rollover">
+    <div id="divRollover">
         <h1>Rollover:</h1>
         <p> Viajes ya confirmados que podes cancelar y cambiar a otro viaje</p>
         <input type="text" id="myInput" onkeyup="myFuncion()" placeholder="Buscar por viaje" title="Type in a name">
@@ -272,7 +272,7 @@
     </div>
 
     <!--Manifiesto de carga-->
-    <div id="divManifiesto" class="manifiestoCarga">
+    <div id="divManifiesto">
         <h1>Manifiesto de carga </h1>
         <form>
             <select id="slcViaje">

@@ -34,3 +34,9 @@ function iniciarSesionEmpresa(){
     ocultarTodo()
     document.querySelector("#divMenuEmpresa").style.display="block"
 }
+
+function crearViaje (){
+    ocultarTodo()
+    document.querySelector("#divMenuEmpresa").style.display="block"
+    document.querySelector("#divCrearViaje").style.display="block"
+}
