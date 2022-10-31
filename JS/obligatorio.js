@@ -18,14 +18,15 @@ function ocultarTodo(){
     document.querySelector("#divRollover").style.display="none"
     document.querySelector("#divManifiesto").style.display="none"
     document.querySelector("#divCargasPeligrosas").style.display="none"
+    //agregar HABILITAR IMPORTADORES
 }
 
 //escuchas de botones
 document.querySelector("#btnCrearViaje").addEventListener("click", crearViaje);
-document.querySelector("#btnAsignarSolicitud").addEventListener("click", asiganSolicitud);
+document.querySelector("#btnAsignarSolicitud").addEventListener("click", asignarSolicitud);
 document.querySelector("#btnRollover").addEventListener("click", rollover);
 document.querySelector("#btnManifiesto").addEventListener("click", manifiesto);
-document.querySelector("#btnHabilitarImportadores").addEventListener("click", habilitarImportadores);
+//document.querySelector("#btnHabilitarImportadores").addEventListener("click", habilitarImportadores);
 document.querySelector("#btnCargaPeligrosa").addEventListener("click", cargaPeligrosa);
 document.querySelector("#btnLogoutEmpresa").addEventListener("click", logoutEmpresa);
 document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesionEmpresa);
@@ -38,5 +39,40 @@ function iniciarSesionEmpresa(){
 function crearViaje (){
     ocultarTodo()
     document.querySelector("#divMenuEmpresa").style.display="block"
-    document.querySelector("#divCrearViaje").style.display="block"
+    document.querySelector("#divNewViajeBuque").style.display="block"
+}
+
+function asignarSolicitud (){
+    ocultarTodo()
+    document.querySelector("#divMenuEmpresa").style.display="block"
+    document.querySelector("#divAsignacionViaje").style.display="block"
+}
+
+function rollover (){
+    ocultarTodo()
+    document.querySelector("#divMenuEmpresa").style.display="block"
+    document.querySelector("#divRollover").style.display="block"
+}
+
+function manifiesto(){
+    ocultarTodo()
+    document.querySelector("#divMenuEmpresa").style.display="block"
+    document.querySelector("#divManifiesto").style.display="block"
+}
+
+/*function habilitarImportadores (){
+    ocultarTodo()
+    document.querySelector("#divMenuEmpresa").style.display="block"
+    document.querySelector("#divRollover").style.display="block"
+}*/
+
+function cargaPeligrosa (){
+    ocultarTodo()
+    document.querySelector("#divMenuEmpresa").style.display="block"
+    document.querySelector("#divCargasPeligrosas").style.display="block"
+}
+
+function logoutEmpresa (){
+    ocultarTodo()
+    inicio()
 }
