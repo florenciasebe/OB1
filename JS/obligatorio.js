@@ -1,3 +1,33 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// PANTALLAS // 
+
 inicio()
 
 function inicio (){
@@ -120,5 +150,3 @@ function cargaPeligrosa (){
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divCargasPeligrosas").style.display="block"
 }
-
-
