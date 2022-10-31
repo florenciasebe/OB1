@@ -30,11 +30,14 @@ document.querySelector("#btnRollover").addEventListener("click", rollover);
 document.querySelector("#btnManifiesto").addEventListener("click", manifiesto);
 document.querySelector("#btnHabilitarImportadores").addEventListener("click", habilitarImportadores);
 document.querySelector("#btnCargaPeligrosa").addEventListener("click", cargaPeligrosa);
-document.querySelector("#btnLogout").addEventListener("click", logout);
-document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion);
 document.querySelector("#btnEstadisticas").addEventListener("click", mostrarEstadisticas);
 document.querySelector("#btnNuevaSolicitud").addEventListener("click", nuevaSolicitud);
 document.querySelector("#btnSolicitudespendientes").addEventListener("click", solicitudesPendientes);
+document.querySelector("#btnregistrarImportador").addEventListener("click", irRegistrar);
+document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion);
+document.querySelector("#btnLogout").addEventListener("click", logout);
+document.querySelector("#btnRegistrar").addEventListener("click", logout);
+
 
 function iniciarSesion(){
     if (document.querySelector("#slcElegirUsuario").value == "e") {
@@ -52,6 +55,11 @@ function iniciarSesion(){
 function logout (){
     ocultarTodo()
     inicio()
+}
+
+function irRegistrar (){
+    ocultarTodo()
+    document.querySelector("#divFormRegistro").style.display="block"
 }
 
 // FPANTALLAS IMPORTADORES//
