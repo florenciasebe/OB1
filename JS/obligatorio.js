@@ -1,15 +1,10 @@
 
-
-
-
-
-
-
-
-
-
-
-
+document.querySelector("#btnRegistrar").addEventListener("click", cargarFoto);
+function cargarFoto(){
+    let foto
+    foto=document.querySelector("#txtFoto").files[0].name;
+    let ruta="img/" + foto
+}
 
 
 
