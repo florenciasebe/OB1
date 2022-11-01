@@ -1,15 +1,29 @@
+import {Empresa} from './MODELOS/empresa.js';
+import {Importador} from './MODELOS/importador.js';
 
-// Cargar IMG en el FORMULARIO DE REGISTRO
-document.querySelector("#btnRegistrar").addEventListener("click", cargarFoto);
-function cargarFoto(){
-    let foto=document.querySelector("#txtFoto").files[0].name; 
+// Cargar IMG en el FORMULARIO DE REGISTRO //
+document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
+function registrarImpo(){
+    let foto = document.querySelector("#txtFoto").files[0].name; 
+    if (getNombreImportador() == "" || getUsuarioImportador() == ""|| getFotoImportador () == ""|| getClaveImportador () == "" ) {
+        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+    }
+    //else guardar datos del usuario -> array
 }
 
-
-
-
-
-
+// LEVANTAR DATOS DEL FORMULARIO DE REGISTRO //
+function getNombreImportador() {
+    return document.querySelector("#nombreImportador").value
+}
+function getUsuarioImportador() {
+    return document.querySelector("#usuarioImportador").value
+}
+function getFotoImportador() {
+    return document.querySelector("#txtFoto").files[0].name
+}
+function getClaveImportador() {
+    return document.querySelector("#txtClaveImpo").value
+}
 
 
 // PANTALLAS // 
@@ -78,7 +92,7 @@ function irRegistrar (){
     document.querySelector("#divFormRegistro").style.display="block"
 }
 
-// FPANTALLAS IMPORTADORES//
+// PANTALLAS IMPORTADORES//
 
 function mostrarEstadisticas (){
     ocultarTodo()
@@ -99,7 +113,7 @@ function solicitudesPendientes (){
     document.querySelector("#divSolicitudesPendientes").style.display="block"
 }
 
-// FPANTALLAS EMPRESAS // 
+// PANTALLAS EMPRESAS // 
 function crearViaje (){
     ocultarTodo()
     document.querySelector("#divSalir").style.display="block"
