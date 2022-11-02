@@ -16,8 +16,10 @@ function registrarImpo(){
     // Validaciones 
     if (nombreImpo == "" || usuarioImpo == ""|| !fotoImpo || claveImpo == "" ) {
         alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
-    } 
-    
+    }
+    else if(!validarClave(claveImpo)){
+        alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
+    }
     else {
         let id = listaDeImportador.length + 1;
         let importador = new Importador(id,nombreImpo,
@@ -30,6 +32,9 @@ function registrarImpo(){
         irHome();
     }
 }
+
+
+
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
 let Impo1= new Importador ("cazul", "azul", "Ort22", "img/foto.jpg");
@@ -53,9 +58,60 @@ function getFotoImportador() {
 }
 function getClaveImportador() {
     return document.querySelector("#txtClaveImpo").value
+    
 }
-
-
+// VALIDACION DE CLAVE //
+function validarClave(unaClave){
+    // mínimo de 5 caracteres, al menos una mayúscula, una minúscula y un número. 
+    let valida= true;
+    if (unaClave.length <5){
+        valida= false
+    }
+    if (contarMayusculas(unaClave)<1){
+        valida= false
+    }
+    if (contarMinusculas(unaClave)<1){
+        valida= false
+    }
+    if (contarNumeros(unaClave)<1){
+        valida= false
+    }
+    return valida
+}
+function contarMayusculas(texto){
+    texto=texto.replaceAll(" ", "");
+    let cantidadMayusculas=0
+    for (let i=0;i<texto.length;i++){
+        if ((texto.charAt(i)==texto.charAt(i).toUpperCase())
+         && (isNaN(texto.charAt(i)))) {
+            cantidadMayusculas++
+        }
+    }
+    return cantidadMayusculas
+}
+function contarMinusculas(texto){
+    texto=texto.replaceAll(" ", "");
+    let cantidadMinusculas=0
+    for (let i=0;i<texto.length;i++){
+        if ((texto.charAt(i)==texto.charAt(i).toLowerCase()) 
+        && (isNaN(texto.charAt(i)))){
+            cantidadMinusculas++
+        }
+    }
+    return cantidadMinusculas
+}
+function contarNumeros(texto){
+    texto=texto.replaceAll(" ", "");
+    let cantidadNumeros=0
+    // recorro todo el string
+    // !isNaN  es evaluar SI es número
+    for (let i=0;i<texto.length;i++){
+        if (!isNaN(texto.charAt(i))) {
+            cantidadNumeros++
+        }
+    }
+    return cantidadNumeros   
+}
 // PANTALLAS // 
 
 inicio()
