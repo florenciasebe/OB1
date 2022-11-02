@@ -1,6 +1,17 @@
 import {Empresa} from './MODELOS/empresa.js';
 import {Importador} from './MODELOS/importador.js';
 
+let usuarioConectado=undefined; //usuario que esta conectado, es muy importande
+let contadorDeEmpresas=1;
+let contadorDeImportadores=1;
+let contadorDeViajes=1;
+let contadorDeSolicitudes=1;
+
+let listaDeEmpresas = new Array ();
+let listaDeImportador = new Array ();
+let listaDeSolicitudes = new Array ();
+let listaDeViajes = new Array ();
+
 // Cargar IMG en el FORMULARIO DE REGISTRO //
 document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
 function registrarImpo(){
