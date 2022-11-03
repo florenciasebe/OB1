@@ -20,7 +20,9 @@ function registrarImpo(){
     else if(!validarClave(claveImpo)){
         alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
     } 
-    //else if(){ validar que el usuario sea unico y que no coincida con ningun nombre//
+    else if(validarUsuario(usuarioImpo)){
+
+    }
     else {
         let id = listaDeImportador.length + 1;
         let importador = new Importador(id,nombreImpo,
@@ -44,6 +46,15 @@ let Impo5= new Importador ("cnaranja", "naranja", "Ort22","img/foto.jpg");
 listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
 
 
+function validarUsuario(user) {
+    let usuarioValido = true;
+    for(let importador of listaDeImportador) {
+        if (importador.usuario == user || importador.nombre == user) {
+            usuarioValido = false;
+        }
+    }
+    return usuarioValido;
+}
 // LEVANTAR DATOS DEL FORMULARIO DE REGISTRO //
 function getNombreImportador() {
     return document.querySelector("#nombreImportador").value
