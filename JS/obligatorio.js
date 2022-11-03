@@ -1,7 +1,7 @@
 //import {Empresa} from './MODELOS/empresa.js';
 import {Importador} from './MODELOS/importador.js';
 
-let usuarioConectado=undefined; //usuario que esta conectado, es muy importande
+let usuarioConectado=undefined; //usuario que esta conectado
 let listaDeImportador = new Array ();
 
 
@@ -19,7 +19,8 @@ function registrarImpo(){
     }
     else if(!validarClave(claveImpo)){
         alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
-    }
+    } 
+    //else if(){ validar que el usuario sea unico y que no coincida con ningun nombre//
     else {
         let id = listaDeImportador.length + 1;
         let importador = new Importador(id,nombreImpo,
@@ -32,9 +33,6 @@ function registrarImpo(){
         irHome();
     }
 }
-
-
-
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
 let Impo1= new Importador ("cazul", "azul", "Ort22", "img/foto.jpg");
