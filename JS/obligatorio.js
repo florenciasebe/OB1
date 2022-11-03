@@ -1,11 +1,23 @@
-//import {Empresa} from './MODELOS/empresa.js';
+import {Empresa} from './MODELOS/empresa.js';
 import {Importador} from './MODELOS/importador.js';
 
 let usuarioConectado=undefined; //usuario que esta conectado
 let listaDeImportador = new Array ();
+let listaDeEmpresas = new Array ();
 
 
-// Cargar IMG en el FORMULARIO DE REGISTRO //
+
+
+//Precarga de datos del importador (hacer 5 como pide la letra)
+let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
+let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
+let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
+let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
+let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
+
+listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
+
+// FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
 document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
 function registrarImpo(){
     //asignacion de variables
@@ -36,15 +48,6 @@ function registrarImpo(){
     }
 }
 
-//Precarga de datos del importador (hacer 5 como pide la letra)
-let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
-let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
-let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
-let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
-let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
-
-listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
-
 // LEVANTAR DATOS DEL FORMULARIO DE REGISTRO //
 function getNombreImportador() {
     return document.querySelector("#nombreImportador").value
@@ -59,6 +62,7 @@ function getClaveImportador() {
     return document.querySelector("#txtClaveImpo").value
     
 }
+
 // VALIDACION DE CLAVE //
 function validarClave(unaClave){
     // mínimo de 5 caracteres, al menos una mayúscula, una minúscula y un número. 
@@ -111,6 +115,7 @@ function contarNumeros(texto){
     }
     return cantidadNumeros   
 }
+
 // VALIDACION DE USUARIO VS USUARIOS Y NOMBRE // 
 function esUsuarioValido(user) {
     let usuarioValido = true;
@@ -121,10 +126,9 @@ function esUsuarioValido(user) {
     }
     return usuarioValido;
 }
+
 // PANTALLAS // 
-
 inicio()
-
 function inicio (){
     ocultarTodo();
     document.querySelector("#divInicioSesion").style.display="block"
@@ -163,7 +167,6 @@ document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesi
 document.querySelector("#btnLogout").addEventListener("click", irHome);
 
 // PANTALLAS GENERALES//
-
 function iniciarSesion(){
     if (document.querySelector("#slcElegirUsuario").value == "e") {
         ocultarTodo()
@@ -176,20 +179,16 @@ function iniciarSesion(){
         document.querySelector("#divSalir").style.display="block"
     }
 }
-
 function irHome(){
     ocultarTodo()
     inicio()
 }
-
 function irRegistrar (){
     ocultarTodo()
     document.querySelector("#divFormRegistro").style.display="block"
 }
 
-
 // PANTALLAS IMPORTADORES//
-
 function mostrarEstadisticas (){
     ocultarTodo()
     document.querySelector("#divSalir").style.display="block"
