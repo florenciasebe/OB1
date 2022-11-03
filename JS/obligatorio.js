@@ -21,7 +21,7 @@ function registrarImpo(){
         alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
     } 
     else if(validarUsuario(usuarioImpo)){
-
+        alert ("Usuario ya registrado. Por favor, intentelo con otro nombre de usuario.")
     }
     else {
         let id = listaDeImportador.length + 1;
