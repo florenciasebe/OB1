@@ -12,8 +12,6 @@
 //              si usuario o clave NO existe en el array Entonces alert ("usuario o clave incorrecta, intentelo nuevamete")
 //              sino inicioSesionImportador (armar function y borrar la funcition genreal - ver donde afecta antes de hacer los cambios)
 
-
-
 // LEVANTAR DATOS DEL INICIO DE SESION //
 
 function getTipoDeUsuario() {
