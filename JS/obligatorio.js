@@ -48,7 +48,7 @@ listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
 
 function esUsuarioValido(user) {
     let usuarioValido = true;
-    for(let importador of listaDeImportador) { // FALTA VALIDARLO CONTRA EL ARRAY DE EMPRESA
+    for(let importador of listaDeImportador) { // NOTAS FALTA VALIDARLO CONTRA EL ARRAY DE EMPRESA
         if (importador.usuario == user || importador.nombre == user) {
             usuarioValido = false;
         }
