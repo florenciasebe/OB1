@@ -20,7 +20,7 @@ function registrarImpo(){
     else if(!validarClave(claveImpo)){
         alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
     } 
-    else if(validarUsuario(usuarioImpo)){
+    else if(!esUsuarioValido(usuarioImpo)){
         alert ("Usuario ya registrado. Por favor, intentelo con otro nombre de usuario.")
     }
     else {
@@ -37,18 +37,18 @@ function registrarImpo(){
 }
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
-let Impo1= new Importador ("cazul", "azul", "Ort22", "img/foto.jpg");
-let Impo2= new Importador ("crojo", "rojo", "Ort22","img/foto.jpg");
-let Impo3= new Importador ("cblanco", "blanco", "Ort22","img/foto.jpg");
-let Impo4= new Importador ("cverde", "verde", "Ort22","img/foto.jpg");
-let Impo5= new Importador ("cnaranja", "naranja", "Ort22","img/foto.jpg");
+let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
+let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
+let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
+let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
+let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
 
 listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
 
 
-function validarUsuario(user) {
+function esUsuarioValido(user) {
     let usuarioValido = true;
-    for(let importador of listaDeImportador) {
+    for(let importador of listaDeImportador) { // FALTA VALIDARLO CONTRA EL ARRAY DE EMPRESA
         if (importador.usuario == user || importador.nombre == user) {
             usuarioValido = false;
         }
