@@ -5,9 +5,6 @@ let usuarioConectado=undefined; //usuario que esta conectado
 let listaDeImportador = new Array ();
 let listaDeEmpresas = new Array ();
 
-
-
-
 //Precarga de datos del importador (hacer 5 como pide la letra)
 let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
 let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
@@ -16,6 +13,9 @@ let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
 let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
 
 listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
+
+//Precarga de datos de las empresas
+let Empresa1= new Empresa ()
 
 // FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
 document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
