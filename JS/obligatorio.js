@@ -45,16 +45,6 @@ let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
 
 listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
 
-
-function esUsuarioValido(user) {
-    let usuarioValido = true;
-    for(let importador of listaDeImportador) { // NOTAS FALTA VALIDARLO CONTRA EL ARRAY DE EMPRESA
-        if (importador.usuario == user || importador.nombre == user) {
-            usuarioValido = false;
-        }
-    }
-    return usuarioValido;
-}
 // LEVANTAR DATOS DEL FORMULARIO DE REGISTRO //
 function getNombreImportador() {
     return document.querySelector("#nombreImportador").value
@@ -120,6 +110,16 @@ function contarNumeros(texto){
         }
     }
     return cantidadNumeros   
+}
+// VALIDACION DE USUARIO VS USUARIOS Y NOMBRE // 
+function esUsuarioValido(user) {
+    let usuarioValido = true;
+    for(let importador of listaDeImportador) { // NOTAS FALTA VALIDARLO CONTRA EL ARRAY DE EMPRESA
+        if (importador.usuario == user || importador.nombre == user) {
+            usuarioValido = false;
+        }
+    }
+    return usuarioValido;
 }
 // PANTALLAS // 
 
