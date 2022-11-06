@@ -11,11 +11,14 @@ let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
 let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
 let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
 let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
-
 listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
 
 //Precarga de datos de las empresas
-let Empresa1= new Empresa ()
+let Empresa1= new Empresa (1, "vaso", "unvaso", "Ati22");
+let Empresa2= new Empresa (2, "jugo", "unjugo", "Ati22");
+let Empresa3= new Empresa (3, "mate", "unmate", "Ati22");
+let Empresa4= new Empresa (4, "termo", "untermo", "Ati22");
+listaDeEmpresas.push(Empresa1,Empresa2,Empresa3,Empresa4)
 
 // FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
 document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);

@@ -1,11 +1,8 @@
 export class Empresa {
-    constructor (unNombre, unUsuario, unaClave){
-
-        this.id=contadorDeEmpresas;
-        this.nombre=unNombre;
-        this.usuario=unUsuario;
-        this.clave=unaClave;
-
-        contadorDeEmpresas++;
+    constructor (id, unNombre, unUsuario, unaClave){
+        this.id = id;
+        this.nombre = unNombre;
+        this.usuario = unUsuario;
+        this.clave = unaClave;
     }
 }
