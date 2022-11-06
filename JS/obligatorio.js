@@ -51,6 +51,26 @@ function registrarImpo(){
     }
 }
 
+// LEVANTAR DATOS DEL INICIO DE SESION //
+
+function getTipoDeUsuario() {
+    if (document.querySelector("#slcElegirUsuario").value == "e") {
+    	return document.querySelector("#slcElegirUsuario").value;
+    }
+    else if (document.querySelector("#slcElegirUsuario").value == "i"){
+       	return document.querySelector("#slcElegirUsuario").value;
+    } 
+    else {
+    	alert ("Debe seleccionar un tipo de usuario");
+    }
+}
+function getUsuarioInicio (){
+    return document.querySelector("#txtUsuario").value;
+}
+function getClaveInicio (){
+    return document.querySelector("#txtClave").value;
+}
+
 // LEVANTAR DATOS DEL FORMULARIO DE REGISTRO //
 function getNombreImportador() {
     return document.querySelector("#nombreImportador").value
