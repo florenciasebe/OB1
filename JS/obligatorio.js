@@ -51,17 +51,53 @@ function registrarImpo(){
     }
 }
 
-// LEVANTAR DATOS DEL INICIO DE SESION //
+// FORMULARIO INICIO DE SESION - VALIDACIONES - CONFIRMAR INICIO SESION //
+function iniciarSesion(){
+    //asignacion de variables
+    let tipoUsuario = getTipoDeUsuario();
+    let usuarioInicio = getUsuarioInicio();
+    let claveInicio = getClaveInicio();
+    // Validaciones 
+    if (tipoUsuario == "" || usuarioInicio == ""|| claveInicio == "" ) {
+        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+    }
+    // llamar la validacion del usuario y de clave por medio del array
+    else if (validarClaveUsuario(tipoUsuario, usuarioInicio, claveInicio)) { 
+        alert ("Usuario y/o contraseña incorrecta. Por favor intentelo nuevamente.")
+    } 
+    loginEoI();
+}
 
+// RECORRER ARRAY DE EMPRESA E IMPORTADOR PARA VALIDAR CLAVE Y USUARIO//
+function validarClaveUsuario(tipo, clave, usuario) {
+    let usuarioCalveValido = false;
+    //valido si es empresa y recorro array empresa
+    if (tipo == "e") {
+        for(let empresa of listaDeEmpresas){
+            if (empresa.usuario == usuario && empresa.clave == clave ){
+                usuarioCalveValido = true;
+            }
+        } 
+    }
+    //valido si es importador y recorro array importador
+    else if (tipo == "i"){
+        for(let importador of listaDeImportador) { 
+            if (importador.usuario == usuario && importador.clave == clave) {
+                usuarioCalveValido = true;
+            }
+        } 
+    }
+    return usuarioCalveValido;
+}
+
+// LEVANTAR DATOS DEL INICIO DE SESION //
+//valido que se elija un usuario y segun el usuario lo dirijo a una pantalla u otra 
 function getTipoDeUsuario() {
     if (document.querySelector("#slcElegirUsuario").value == "e") {
-    	return document.querySelector("#slcElegirUsuario").value;
+        return document.querySelector("#slcElegirUsuario").value;
     }
     else if (document.querySelector("#slcElegirUsuario").value == "i"){
        	return document.querySelector("#slcElegirUsuario").value;
-    } 
-    else {
-    	alert ("Debe seleccionar un tipo de usuario");
     }
 }
 function getUsuarioInicio (){
@@ -142,8 +178,13 @@ function contarNumeros(texto){
 // VALIDACION DE USUARIO VS USUARIOS Y NOMBRE // 
 function esUsuarioValido(user) {
     let usuarioValido = true;
-    for(let importador of listaDeImportador) { // NOTAS FALTA VALIDARLO CONTRA EL ARRAY DE EMPRESA
+    for(let importador of listaDeImportador) { 
         if (importador.usuario == user || importador.nombre == user) {
+            usuarioValido = false;
+        }
+    }
+    for(let empresa of listaDeEmpresas){
+        if (empresa.usuario == user || empresa.nombre == user){
             usuarioValido = false;
         }
     }
@@ -186,11 +227,11 @@ document.querySelector("#btnEstadisticas").addEventListener("click", mostrarEsta
 document.querySelector("#btnNuevaSolicitud").addEventListener("click", nuevaSolicitud);
 document.querySelector("#btnSolicitudespendientes").addEventListener("click", solicitudesPendientes);
 document.querySelector("#btnregistrarImportador").addEventListener("click", irRegistrar);
-document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion);
+document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion );
 document.querySelector("#btnLogout").addEventListener("click", irHome);
 
 // PANTALLAS GENERALES//
-function iniciarSesion(){
+/*function iniciarSesion(){
     if (document.querySelector("#slcElegirUsuario").value == "e") {
         ocultarTodo()
         document.querySelector("#divMenuEmpresa").style.display="block"
@@ -201,7 +242,7 @@ function iniciarSesion(){
         document.querySelector("#divMenuImportador").style.display="block"
         document.querySelector("#divSalir").style.display="block"
     }
-}
+}*/
 function irHome(){
     ocultarTodo()
     inicio()
@@ -209,6 +250,18 @@ function irHome(){
 function irRegistrar (){
     ocultarTodo()
     document.querySelector("#divFormRegistro").style.display="block"
+}
+function loginEoI(){
+    if (document.querySelector("#slcElegirUsuario").value == "e") {
+        ocultarTodo()
+        document.querySelector("#divMenuEmpresa").style.display="block"
+        document.querySelector("#divSalir").style.display="block"
+    }
+    else if (document.querySelector("#slcElegirUsuario").value == "i"){
+        ocultarTodo()
+        document.querySelector("#divMenuImportador").style.display="block"
+        document.querySelector("#divSalir").style.display="block"
+    }  
 }
 
 // PANTALLAS IMPORTADORES//
