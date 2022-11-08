@@ -58,18 +58,20 @@ function iniciarSesion(){
     let usuarioInicio = getUsuarioInicio();
     let claveInicio = getClaveInicio();
     // Validaciones 
-    if (tipoUsuario == "" || usuarioInicio == ""|| claveInicio == "" ) {
+    if (tipoUsuario != "e" && tipoUsuario != "i" || usuarioInicio == ""|| claveInicio == "" ) {
         alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
     }
     // llamar la validacion del usuario y de clave por medio del array
-    else if (validarClaveUsuario(tipoUsuario, usuarioInicio, claveInicio)) { 
+    else if (!validarClaveUsuario(tipoUsuario, usuarioInicio, claveInicio)) { 
         alert ("Usuario y/o contraseña incorrecta. Por favor intentelo nuevamente.")
-    } 
-    loginEoI();
+    }
+    else{
+        loginEoI();
+    }
 }
 
 // RECORRER ARRAY DE EMPRESA E IMPORTADOR PARA VALIDAR CLAVE Y USUARIO//
-function validarClaveUsuario(tipo, clave, usuario) {
+function validarClaveUsuario(tipo, usuario, clave) {
     let usuarioCalveValido = false;
     //valido si es empresa y recorro array empresa
     if (tipo == "e") {
@@ -93,12 +95,7 @@ function validarClaveUsuario(tipo, clave, usuario) {
 // LEVANTAR DATOS DEL INICIO DE SESION //
 //valido que se elija un usuario y segun el usuario lo dirijo a una pantalla u otra 
 function getTipoDeUsuario() {
-    if (document.querySelector("#slcElegirUsuario").value == "e") {
-        return document.querySelector("#slcElegirUsuario").value;
-    }
-    else if (document.querySelector("#slcElegirUsuario").value == "i"){
-       	return document.querySelector("#slcElegirUsuario").value;
-    }
+    return document.querySelector("#slcElegirUsuario").value;
 }
 function getUsuarioInicio (){
     return document.querySelector("#txtUsuario").value;
