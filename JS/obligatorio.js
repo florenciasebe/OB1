@@ -8,7 +8,15 @@ let usuarioConectado=undefined; //usuario que esta conectado
 let listaDeImportador = new Array ();
 let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
-let 
+let listaDeViajes = new Array ();
+
+//Precarga de solicitudes (hacer 5 como pide la letra)
+let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3");
+let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de USA", "4");
+let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de USA", "1");
+let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2");
+let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de china", "6");
+listaDeImportador.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
 let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
@@ -24,6 +32,8 @@ let Empresa2= new Empresa (2, "rapido", "arapido", "Ati22");
 let Empresa3= new Empresa (3, "pediloya", "apediloya", "Ati22");
 let Empresa4= new Empresa (4, "eficaz", "aeficaz", "Ati22");
 listaDeEmpresas.push(Empresa1,Empresa2,Empresa3,Empresa4);
+
+
 
 // FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
 document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
