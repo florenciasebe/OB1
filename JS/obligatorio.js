@@ -10,6 +10,13 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
+//Precarga de datos de viajes
+let Viaje1= new Viajes (1, "Buque1", "10", "rapido", "02/02/2023");
+let Viaje2= new Viajes (2, "Buque2", "7", "facil", "15/01/2023");
+let Viaje3= new Viajes (1, "Buque3", "8", "pediloya", "05/03/2023");
+let Viaje4= new Viajes (2, "Buque4", "15", "eficaz", "19/01/2023");
+listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
+
 //Precarga de solicitudes (hacer 5 como pide la letra)
 let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3");
 let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de USA", "4");
