@@ -16,7 +16,7 @@ let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres"
 let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de USA", "1");
 let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2");
 let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de china", "6");
-listaDeImportador.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
+listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
 let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
