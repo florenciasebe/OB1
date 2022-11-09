@@ -1,9 +1,14 @@
+//Importamos los array(objetos) que estan en la carpeta de modelos
 import {Empresa} from './MODELOS/empresa.js';
 import {Importador} from './MODELOS/importador.js';
+import {Solicitudes} from './MODELOS/solicitudes';
+import {Viajes} from './MODELOS/viajes.js';
 
 let usuarioConectado=undefined; //usuario que esta conectado
 let listaDeImportador = new Array ();
 let listaDeEmpresas = new Array ();
+let listaDeSolicitudes = new Array ();
+let 
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
 let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
