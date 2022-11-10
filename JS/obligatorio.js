@@ -10,6 +10,33 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
+//VALIDAR DATOS DE CREAR VIAJE DE BUQUE //
+document.querySelector("#btnCrearViaje").addEventListener("click", validarCrearViaje);
+function validarCrearViaje(){
+    //asignacion de variables
+    let nombreBuque = getNombreDelBuque();
+    let maxCont = getMaximoDeContenedores();
+    let nombreEmpresa = getNombreDeEmpresa();
+    let fechaLlegada = getFechaDeLlegada();
+    // Validaciones 
+    if (nombreBuque == "" || maxCont == ""|| nombreEmpresa == "" || fechaLlegada == "" ) {
+        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+    }
+    else if(cantiContenedores < 1){
+        alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
+    }
+    //recorrer array empresa, para validar que la empresa exista en la base de datos
+    // validar que la fecha sea posterior al dia de hoy
+    else {
+        let id = listaDeSolicitudes.length + 1;
+        let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores);
+        //guarda en el array
+        listaDeSolicitudes.push(solicitudes); 
+        alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
+    }
+    
+}
+
 //LEVANTAR DATOS DE CREAR VIAJE DE BUQUE // 
 function getNombreDelBuque() {
     return document.querySelector("#txtNombreBuque").value;
