@@ -1,7 +1,7 @@
 //Importamos los array(objetos) que estan en la carpeta de modelos
 import {Empresa} from './MODELOS/empresa.js';
 import {Importador} from './MODELOS/importador.js';
-import {Solicitudes} from './MODELOS/solicitudes';
+import {Solicitudes} from './MODELOS/solicitudes.js';
 import {Viajes} from './MODELOS/viajes.js';
 
 let usuarioConectado=undefined; //usuario que esta conectado
@@ -58,7 +58,7 @@ function validarSolicitud(){
         alert ("Se debe ingresar al menos 1 contenedor para poder realizar la solicitud")
     }
     else {
-
+        alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
     }
 }
 
