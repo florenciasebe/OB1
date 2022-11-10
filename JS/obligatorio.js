@@ -10,37 +10,7 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
-// PRECARGA DE TODOS LOS DATOS //
 
-//Precarga de datos de viajes
-let Viaje1= new Viajes (1, "Buque1", "10", "rapido", "02/02/2023");
-let Viaje2= new Viajes (2, "Buque2", "7", "facil", "15/01/2023");
-let Viaje3= new Viajes (1, "Buque3", "8", "pediloya", "05/03/2023");
-let Viaje4= new Viajes (2, "Buque4", "15", "eficaz", "19/01/2023");
-listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
-
-//Precarga de solicitudes (hacer 5 como pide la letra)
-let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3");
-let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", "4");
-let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", "1");
-let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2");
-let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", "6");
-listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
-
-//Precarga de datos del importador (hacer 5 como pide la letra)
-let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
-let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
-let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
-let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
-let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
-listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
-
-//Precarga de datos de las empresas
-let Empresa1= new Empresa (1, "facil", "afacil", "Ati22");
-let Empresa2= new Empresa (2, "rapido", "arapido", "Ati22");
-let Empresa3= new Empresa (3, "pediloya", "apediloya", "Ati22");
-let Empresa4= new Empresa (4, "eficaz", "aeficaz", "Ati22");
-listaDeEmpresas.push(Empresa1,Empresa2,Empresa3,Empresa4);
 
 //VALIDAR DATOS DE SOLICITUD //
 document.querySelector("#btnConfirmarSolicitud").addEventListener("click", validarSolicitud);
@@ -379,5 +349,35 @@ function cargaPeligrosa (){
     document.querySelector("#divCargasPeligrosas").style.display="block"
 }
 
+// PRECARGA DE TODOS LOS DATOS //
 
+//Precarga de datos de viajes
+let Viaje1= new Viajes (1, "Buque1", "10", "rapido", "02/02/2023");
+let Viaje2= new Viajes (2, "Buque2", "7", "facil", "15/01/2023");
+let Viaje3= new Viajes (1, "Buque3", "8", "pediloya", "05/03/2023");
+let Viaje4= new Viajes (2, "Buque4", "15", "eficaz", "19/01/2023");
+listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
+
+//Precarga de solicitudes (hacer 5 como pide la letra)
+let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3");
+let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", "4");
+let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", "1");
+let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2");
+let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", "6");
+listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
+
+//Precarga de datos del importador (hacer 5 como pide la letra)
+let Impo1= new Importador (1, "cazul", "azul", "Ort22", "img/foto.jpg");
+let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
+let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
+let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
+let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
+listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
+
+//Precarga de datos de las empresas
+let Empresa1= new Empresa (1, "facil", "afacil", "Ati22");
+let Empresa2= new Empresa (2, "rapido", "arapido", "Ati22");
+let Empresa3= new Empresa (3, "pediloya", "apediloya", "Ati22");
+let Empresa4= new Empresa (4, "eficaz", "aeficaz", "Ati22");
+listaDeEmpresas.push(Empresa1,Empresa2,Empresa3,Empresa4);
 
