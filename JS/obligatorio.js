@@ -21,10 +21,10 @@ listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
 let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3");
-let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de USA", "4");
-let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de USA", "1");
+let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", "4");
+let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", "1");
 let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2");
-let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de china", "6");
+let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", "6");
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
@@ -42,11 +42,39 @@ let Empresa3= new Empresa (3, "pediloya", "apediloya", "Ati22");
 let Empresa4= new Empresa (4, "eficaz", "aeficaz", "Ati22");
 listaDeEmpresas.push(Empresa1,Empresa2,Empresa3,Empresa4);
 
-//LEVANTAR DATOS DE SOLICITUD DE CARGA // 
-//function getTipoDeUsuario() {
-  //  return document.querySelector("#slcElegirUsuario").value;
-//}
+//VALIDAR DATOS DE SOLICITUD //
+document.querySelector("#btnConfirmarSolicitud").addEventListener("click", validarSolicitud);
+function validarSolicitud(){
+    //asignacion de variables
+    let tipoMercaderia = getTipoDeMercaderia();
+    let descMercaderia = getDescripcionMercaderia();
+    let puertoOrigen = getPuertoOrigen();
+    let cantiContenedores = getCantidadContenedores();
+    // Validaciones 
+    if (tipoMercaderia == "" || descMercaderia == ""|| puertoOrigen== "" || cantiContenedores == "" ) {
+        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+    }
+    else if(cantiContenedores < 1){
+        alert ("Se debe ingresar al menos 1 contenedor para poder realizar la solicitud")
+    }
+    else {
 
+    }
+}
+
+//LEVANTAR DATOS DE SOLICITUD DE CARGA // 
+function getTipoDeMercaderia() {
+    return document.querySelector("#slcTipoMercaderia").value;
+}
+function getDescripcionMercaderia(){
+    return document.querySelector("#txtDescripcionMercaderia").value;
+}
+function getPuertoOrigen(){
+    return document.querySelector("#slcPuertos").value;
+}
+function getCantidadContenedores(){
+    return document.querySelector("#txtCantidadContenedores").value;
+}
 
 
 // FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
