@@ -10,7 +10,19 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
-
+//LEVANTAR DATOS DE CREAR VIAJE DE BUQUE // 
+function getNombreDelBuque() {
+    return document.querySelector("#txtNombreBuque").value;
+}
+function getMaximoDeContenedores() {
+    return document.querySelector("#txtCantidadMaxContenedores").value;
+}
+function getNombreDeEmpresa() {
+    return document.querySelector("#txtNombreEmpresa").value;
+}
+function getFechaDeLlegada() {
+    return document.querySelector("#txtFechaLlegada").value;
+}
 
 //VALIDAR DATOS DE SOLICITUD //
 document.querySelector("#btnConfirmarSolicitud").addEventListener("click", validarSolicitud);
