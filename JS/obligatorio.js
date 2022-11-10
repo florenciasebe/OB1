@@ -58,8 +58,13 @@ function validarSolicitud(){
         alert ("Se debe ingresar al menos 1 contenedor para poder realizar la solicitud")
     }
     else {
+        let id = listaDeSolicitudes.length + 1;
+        let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores);
+        //guarda en el array
+        listaDeSolicitudes.push(solicitudes); 
         alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
     }
+    
 }
 
 //LEVANTAR DATOS DE SOLICITUD DE CARGA // 
