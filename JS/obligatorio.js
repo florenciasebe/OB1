@@ -81,7 +81,6 @@ function getCantidadContenedores(){
     return document.querySelector("#txtCantidadContenedores").value;
 }
 
-
 // FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
 document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
 function registrarImpo(){
