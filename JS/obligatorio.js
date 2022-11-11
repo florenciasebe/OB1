@@ -26,6 +26,9 @@ function validarCrearViaje(){
         alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
     }
     //recorrer array empresa, para validar que la empresa exista en la base de datos
+    else if (!validarUsuarioEmpresa(usuario)){ // CAPAS PODEMOS ARMAR UN SLC VARIABLE QUE YA TIRE LAS EMPRESAS REGISTRADAS
+        alert ("Empresa invalida. Favor volver a intentarlo.")
+    }
     // validar que la fecha sea posterior al dia de hoy
     else {
         let id = listaDeSolicitudes.length + 1;
@@ -34,7 +37,6 @@ function validarCrearViaje(){
         listaDeSolicitudes.push(solicitudes); 
         alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
     }
-    
 }
 
 //LEVANTAR DATOS DE CREAR VIAJE DE BUQUE // 
@@ -49,6 +51,16 @@ function getNombreDeEmpresa() {
 }
 function getFechaDeLlegada() {
     return document.querySelector("#txtFechaLlegada").value;
+}
+function validarUsuarioEmpresa(usuario) {
+    let usuarioEmpresaValido = false;
+    //valido si es empresa y recorro array empresa
+    for(let empresa of listaDeEmpresas){
+        if (empresa.usuario == usuario){
+            usuarioCalveValido = true;
+        }
+    } 
+    return usuarioEmpresaValido;
 }
 
 //VALIDAR DATOS DE SOLICITUD //
