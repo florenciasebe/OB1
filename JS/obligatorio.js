@@ -22,11 +22,11 @@ function validarCrearViaje(){
     if (nombreBuque == "" || maxCont == ""|| nombreEmpresa == "" || fechaLlegada == "" ) {
         alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
     }
-    else if(cantiContenedores < 1){
+    else if(maxCont < 1){
         alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
     }
     //recorrer array empresa, para validar que la empresa exista en la base de datos
-    else if (!validarUsuarioEmpresa(usuario)){ // CAPAS PODEMOS ARMAR UN SLC VARIABLE QUE YA TIRE LAS EMPRESAS REGISTRADAS
+    else if (!validarUsuarioEmpresa(nombreEmpresa)){ // CAPAS PODEMOS ARMAR UN SLC VARIABLE QUE YA TIRE LAS EMPRESAS REGISTRADAS
         alert ("Empresa invalida. Favor volver a intentarlo.")
     }
     // validar que la fecha sea posterior al dia de hoy
