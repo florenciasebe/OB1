@@ -11,7 +11,7 @@ let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
 //VALIDAR DATOS DE CREAR VIAJE DE BUQUE //
-document.querySelector("#btnCrearViaje").addEventListener("click", validarCrearViaje);
+document.querySelector("#btnNewViaje").addEventListener("click", validarCrearViaje);
 function validarCrearViaje(){
     //asignacion de variables
     let nombreBuque = getNombreDelBuque();
