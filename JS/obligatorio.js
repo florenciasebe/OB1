@@ -12,14 +12,18 @@ let listaDeViajes = new Array ();
 
 // COMBO Y TABLA DINAMICA DE ASIGNACION DE VIAJES // 
 
-function cargarComboViajesDisponibles (){
+function cargarComboViajesDisponibles(){
     let comboViajesDisponibles = document.querySelector("#slcViajes");
+    let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
     comboViajesDisponibles.innerHTML;
+    comboSolicitudesDisponibles.innerHTML;
     for(let viajes of listaDeViajes){
         comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"+viajes.nombreBuque+", "+viajes.maximoContenedores+" lugares disponibles, fecha de llegada: "+viajes.fechaLlegada+"</option>";
     }
+    for(let solicitudes of listaDeSolicitudes){
+        comboViajesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
+    }
 }
-
 
 
 //VALIDAR DATOS DE CREAR VIAJE DE BUQUE //
