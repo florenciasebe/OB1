@@ -10,6 +10,8 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
+// INTENTO DE CREAR TABLA PARA SOLICITUDES PENDIENTES // 
+
 
 // CARGAR COMBO DINAMICO DE ASIGNACION DE VIAJES // 
 function cargarComboAsigancionViajes(){
