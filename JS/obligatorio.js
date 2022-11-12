@@ -11,7 +11,6 @@ let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
 // INTENTO DE CREAR TABLA PARA SOLICITUDES PENDIENTES // 
-
 function cargarTablaSP(){
     let tablaspHTML = "<table border=1>";
     tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Cod. de empresa</th><th>Estado</th><th></th></tr>"
@@ -56,6 +55,7 @@ function validarCrearViaje(){
         alert ("Empresa invalida. Favor volver a intentarlo.")
     }
     // validar que la fecha sea posterior al dia de hoy
+
     else {
         let id = listaDeSolicitudes.length + 1;
         let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores);
@@ -395,6 +395,8 @@ function crearViaje (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divNewViajeBuque").style.display="block"
+    let date = document.querySelector("#txtFechaLlegada");
+    date.min = Date.now.toISOString().split("T")[0];
 }
 function asignarSolicitud (){
     ocultarTodo()
