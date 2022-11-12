@@ -24,14 +24,23 @@ function cargarTablaSP(){
 // CARGAR COMBO DINAMICO DE ASIGNACION DE VIAJES // 
 function cargarComboAsigancionViajes(){
     let comboViajesDisponibles = document.querySelector("#slcViajes");
-    let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
     comboViajesDisponibles.innerHTML = "";
-    comboSolicitudesDisponibles.innerHTML = "";
     for(let viajes of listaDeViajes){
         comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"+viajes.nombreBuque+", "+viajes.maximoContenedores+" lugares disponibles, fecha de llegada: "+viajes.fechaLlegada+"</option>";
     }
+
+    let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
+    comboSolicitudesDisponibles.innerHTML = "";
     for(let solicitudes of listaDeSolicitudes){
         comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
+    }
+}
+//CARGAR COMBO DE EMPRESAS DISPONIBLES PARA ELEGIR EN CREAR VIAJE //
+function cargarComboEmpresasDisponibles(){
+    let comboEmpresasDisponibles = document.querySelector("#slcNombreEmpresa");
+    comboEmpresasDisponibles.innerHTML = "";
+    for (let empresas of listaDeEmpresas){
+        comboEmpresasDisponibles.innerHTML+="<option>"+empresas.nombre+"</option>";
     }
 }
 
@@ -49,10 +58,6 @@ function validarCrearViaje(){
     }
     else if(maxCont < 1){
         alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
-    }
-    //recorrer array empresa, para validar que la empresa exista en la base de datos
-    else if (!validarUsuarioEmpresa(nombreEmpresa)){ // CAPAS PODEMOS ARMAR UN SLC VARIABLE QUE YA TIRE LAS EMPRESAS REGISTRADAS
-        alert ("Empresa invalida. Favor volver a intentarlo.")
     }
     else {
         let id = listaDeSolicitudes.length + 1;
@@ -398,6 +403,7 @@ function crearViaje (){
     let today = new Date(timeElapsed);
     today.setDate(today.getDate() + 1)
     date.min = today.toISOString().split("T")[0];
+    cargarComboEmpresasDisponibles()
 }
 function asignarSolicitud (){
     ocultarTodo()
