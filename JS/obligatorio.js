@@ -12,13 +12,22 @@ let listaDeViajes = new Array ();
 
 // INTENTO DE CREAR TABLA PARA SOLICITUDES PENDIENTES // 
 
+function cargarTablaSP(){
+    let tablaspHTML = "<table border=1>";
+    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Cod. de empresa</th><th>Estado</th><th></th></tr>"
+    for(let solicitudes of listaDeSolicitudes){
+        tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+"</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+"</td><td>"+solicitudes.cantidadContenedores+"</td></tr>"
+    }
+    tablaspHTML += "</table>";
+    document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
+}
 
 // CARGAR COMBO DINAMICO DE ASIGNACION DE VIAJES // 
 function cargarComboAsigancionViajes(){
     let comboViajesDisponibles = document.querySelector("#slcViajes");
     let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
-    comboViajesDisponibles.innerHTML;
-    comboSolicitudesDisponibles.innerHTML;
+    comboViajesDisponibles.innerHTML = "";
+    comboSolicitudesDisponibles.innerHTML = "";
     for(let viajes of listaDeViajes){
         comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"+viajes.nombreBuque+", "+viajes.maximoContenedores+" lugares disponibles, fecha de llegada: "+viajes.fechaLlegada+"</option>";
     }
@@ -377,6 +386,7 @@ function solicitudesPendientes (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divSolicitudesPendientes").style.display="block"
+    cargarTablaSP()
 }
 
 // PANTALLAS EMPRESAS // 
