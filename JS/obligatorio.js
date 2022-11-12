@@ -12,7 +12,7 @@ let listaDeViajes = new Array ();
 
 
 // CARGAR COMBO DINAMICO DE ASIGNACION DE VIAJES // 
-function cargarComboViajesDisponibles(){
+function cargarComboAsigancionViajes(){
     let comboViajesDisponibles = document.querySelector("#slcViajes");
     let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
     comboViajesDisponibles.innerHTML;
@@ -389,7 +389,7 @@ function asignarSolicitud (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divAsignacionViaje").style.display="block"
-    cargarComboViajesDisponibles()
+    cargarComboAsigancionViajes()
 }
 function rollover (){
     ocultarTodo()
