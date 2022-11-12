@@ -54,8 +54,6 @@ function validarCrearViaje(){
     else if (!validarUsuarioEmpresa(nombreEmpresa)){ // CAPAS PODEMOS ARMAR UN SLC VARIABLE QUE YA TIRE LAS EMPRESAS REGISTRADAS
         alert ("Empresa invalida. Favor volver a intentarlo.")
     }
-    // validar que la fecha sea posterior al dia de hoy
-
     else {
         let id = listaDeSolicitudes.length + 1;
         let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores);
@@ -396,7 +394,10 @@ function crearViaje (){
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divNewViajeBuque").style.display="block"
     let date = document.querySelector("#txtFechaLlegada");
-    date.min = Date.now.toISOString().split("T")[0];
+    let timeElapsed = Date.now();
+    let today = new Date(timeElapsed);
+    today.setDate(today.getDate() + 1)
+    date.min = today.toISOString().split("T")[0];
 }
 function asignarSolicitud (){
     ocultarTodo()
