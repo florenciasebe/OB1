@@ -8,5 +8,6 @@ export class Solicitudes{
         this.descripcion = unaDescripcion;
         this.puertoOrigen = unPuerto;
         this.cantidadContenedores = Ccontenedores;
+        this.estado = estadoSolicitud;
     }
 }
