@@ -10,6 +10,18 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
+// COMBO Y TABLA DINAMICA DE ASIGNACION DE VIAJES // 
+
+function cargarComboViajesDisponibles (){
+    let comboViajesDisponibles = document.querySelector("#slcViajes");
+    comboViajesDisponibles.innerHTML;
+    for(let viajes of listaDeViajes){
+        comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"+viajes.nombreBuque+", "+viajes.maximoContenedores+" lugares disponibles, fecha de llegada: "+viajes.fechaLlegada+"</option>";
+    }
+}
+
+
+
 //VALIDAR DATOS DE CREAR VIAJE DE BUQUE //
 document.querySelector("#btnNewViaje").addEventListener("click", validarCrearViaje);
 function validarCrearViaje(){
@@ -374,6 +386,7 @@ function asignarSolicitud (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divAsignacionViaje").style.display="block"
+    cargarComboViajesDisponibles()
 }
 function rollover (){
     ocultarTodo()
