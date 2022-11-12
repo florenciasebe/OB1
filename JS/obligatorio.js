@@ -17,7 +17,7 @@ function cargarTablaSP(){
     for(let solicitudes of listaDeSolicitudes){
         tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
         "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
-        "</td><td>"+solicitudes.cantidadContenedores+"</td></tr>"
+        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+"</td></tr>"
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
