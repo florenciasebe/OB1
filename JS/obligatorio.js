@@ -11,6 +11,17 @@ let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
 //----------------------------------------------------------------------------------------------------//
+//-------------------------------- MANIFIESTO DE CARGA --------------------------------//
+//TABLA SLC PARA MANIFIESTO // 
+function cargarSlcManifiesto(){
+    let comboManifiesto = document.querySelector("#slcViaje");
+    comboManifiesto.innerHTML = "";
+    for(let viajes of listaDeViajes){
+        comboManifiesto.innerHTML+= "<option>"+"Nro de viaje: "+viajes.id+", fecha de llegada: "+viajes.fechaLlegada+"</option>";
+    }  
+}
+
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- SOLICITUDES PENDIENTES --------------------------------//
 
 //TABLA DINAMICA PARA SOLICITUDES PENDIENTES // 
@@ -29,7 +40,7 @@ function cargarTablaSP(){
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ASIGNAR VIAJE A SOLICITUDES PENDIENTES --------------------------------//
 
-// CARGAR COMBO DINAMICO DE ASIGNACION DE VIAJES // 
+// CARGAR SLC DINAMICO DE ASIGNACION DE VIAJES // 
 function cargarComboAsigancionViajes(){
     let comboViajesDisponibles = document.querySelector("#slcViajes");
     comboViajesDisponibles.innerHTML = "";
@@ -448,6 +459,7 @@ function manifiesto(){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divManifiesto").style.display="block"
+    cargarSlcManifiesto()
 }
 function habilitarImportadores (){
     ocultarTodo()
@@ -468,8 +480,8 @@ function cargaPeligrosa (){
 //Precarga de datos de viajes
 let Viaje1= new Viajes (1, "Buque1", "10", "rapido", "02/02/2023");
 let Viaje2= new Viajes (2, "Buque2", "7", "facil", "15/01/2023");
-let Viaje3= new Viajes (1, "Buque3", "8", "pediloya", "05/03/2023");
-let Viaje4= new Viajes (2, "Buque4", "15", "eficaz", "19/01/2023");
+let Viaje3= new Viajes (3, "Buque3", "8", "pediloya", "05/03/2023");
+let Viaje4= new Viajes (4, "Buque4", "15", "eficaz", "19/01/2023");
 listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
