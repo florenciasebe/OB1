@@ -12,13 +12,13 @@
     <div id="divFormRegistro">
         <h1>Registro de importador</h1>
        <form name="registroImportador">
-            <label for="nombre">Nombre:</label>
+            <label for="nombreImportador">Nombre:</label>
             <input type="text" id="nombreImportador"><br>
-            <label for="usuario">Usuario:</label>
+            <label for="usuarioImportador">Usuario:</label>
             <input type="text" id="usuarioImportador"><br>
-            <label for="foto">Foto:</label>
+            <label for="txtFoto">Foto:</label>
             <input type="file" id="txtFoto"><br>
-            <label for="contraseña">Contraseña</label>
+            <label for="txtClaveImpo">Contraseña</label>
             <input type="password" id="txtClaveImpo"><br><br>
             <input type="button" id="btnRegistrar" value="Confirmar registro"/>
         </form>    
@@ -33,9 +33,9 @@
                 <option value="i">Soy importador</option>
                 <option value="e">Soy empresa</option>
             </select><br>
-            <label for="usuario">Usuario:</label>
+            <label for="txtUsuario">Usuario:</label>
             <input type="text" id="txtUsuario"><br>
-            <label for="contraseña">Contraseña</label>
+            <label for="txtClave">Contraseña</label>
             <input type="password" id="txtClave"><br>
             <input type="button" id="btnInicioSesion" value="Iniciar sesion"/><br><br>
             <input type="button" id="btnregistrarImportador" value="No estoy registrado"/>  
@@ -48,7 +48,7 @@
         <input type="button" id="btnCrearViaje" value="Crear viaje"/>
         <input type="button" id="btnAsignarSolicitud" value="Asignar solicitud"/> 
         <input type="button" id="btnRollover" value="Rollover"/>
-        <input type="button" id="btnManifiesto" value="Minifiesto"/>
+        <input type="button" id="btnManifiesto" value="Manifiesto"/>
         <input type="button" id="btnCargaPeligrosa" value="Carga peligrosa"/>
         <input type="button" id="btnHabilitarImportadores" value="Habilitar importadores"/>
 	</div>	
@@ -69,16 +69,16 @@
     <div id="divNewSolicitud">
         <h1>Nueva solicitud de carga</h1>
         <form name="formularioRegistro">
-            <label for="mercaderia">Tipo de mercadería</label>
+            <label for="slcTipoMercaderia">Tipo de mercadería</label>
             <select id="slcTipoMercaderia">
                 <option class="opcionDefecto" disabled selected>Selecciona una opción</option>
                 <option value="cGeneral">CARGA_GENERAL</option>
                 <option value="cRefrigerada">REFRIGERADO</option>
                 <option value="cPeligrosa">CARGA_PELIGROSA</option>
             </select><br>
-            <label for="descripcionMercaderia">Descripción de mercadería</label>
+            <label for="txtDescripcionMercaderia">Descripción de mercadería</label>
 		    <textarea id="txtDescripcionMercaderia"></textarea><br>
-            <label for="puertos">Puerto de origen</label>
+            <label for="slcPuertos">Puerto de origen</label>
             <select id="slcPuertos">
                 <option class="opcionDefecto" disabled selected>Selecciona una opción</option>
                 <option value="pChina">Puerto de China</option>
@@ -87,7 +87,7 @@
                 <option value="pCoreaDelSur">Puerto de Corea del Sur</option>
                 <option value="pBrasil">Puerto de Brasil</option>
             </select><br>
-            <label for="cantidadContenedores">Cantidad de contenedores</label>
+            <label for="txtCantidadContenedores">Cantidad de contenedores</label>
             <input type="number" id="txtCantidadContenedores"><br>
             <input type="button" id="btnConfirmarSolicitud" value="Confirmar solicitud"/>
         </form>   
@@ -122,6 +122,7 @@
         <input type="text" id="txtApellido" value="Buscador" style="color:rgb(124, 124, 124);">
         <br><br>
         <table style="width:100%">
+            <thead>
             <tr>
                 <th>Fecha</th>
                 <th>Nro. de solicitud</th>
@@ -131,15 +132,18 @@
                 <th>Cantidad de contenedores</th>
                 <th>Cod. de empresa</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td>29/11/2022</td>
                 <td>267771</td>
                 <td>REFRIGERADO</td>
-                <td>Alimentos. Pescado congelado, frutos del mar. </td>
+                <td>Alimentos. Pescado congelado. Frutos del mar. </td>
                 <td>Puerto marítimo de San Antonio</td>
                 <td>1</td>
                 <td>AdP4549c</td>
             </tr>
+        </tbody>
         </table>      
         <h2>Graficos estadísticos</h2>       
         <h4>Porcentaje de cancelaciones</h4>
@@ -156,7 +160,7 @@
         <form name="formularioRegistro">
             <label for="txtNombreBuque">Nombre del buque</label>
 		    <input type="text" id="txtNombreBuque"><br>
-            <label for="cantidadMaxContenedores">Cantidad maxima de contenedores</label>
+            <label for="txtCantidadMaxContenedores">Cantidad maxima de contenedores</label>
             <input type="number" id="txtCantidadMaxContenedores"><br>
             <label for="slcNombreEmpresa">Nombre de la empresa</label>
             <select id="slcNombreEmpresa"></select><br>
@@ -172,7 +176,7 @@
         <label for="slcViajes">Viajes disponibles:</label>
         <select id="slcViajes"></select>
         <br><br>
-        <label for="slcSolicitudesPendientes">Solicitudes pendiente:</label>
+        <label for="slcSolicitudesPendientes">Solicitudes pendientes:</label>
         <select id="slcSolicitudesPendientes"></select>
         <br><br>
         <input type="button" id="btnasignar" value="Confirmar viaje">
