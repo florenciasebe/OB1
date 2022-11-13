@@ -112,7 +112,7 @@ function validarSolicitud(){
     }
     else {
         let id = listaDeSolicitudes.length + 1;
-        let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores);
+        let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores, "PENDIENTE");
         //guarda en el array
         listaDeSolicitudes.push(solicitudes); 
         alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")

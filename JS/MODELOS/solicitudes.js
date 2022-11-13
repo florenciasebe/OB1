@@ -2,7 +2,7 @@
 
 export class Solicitudes{
     //PARA CREAR lista de solicitudes DEBO HACER NEW viajes(id, nombre, usuario....)
-    constructor(id, unTC, unaDescripcion, unPuerto, Ccontenedores){
+    constructor(id, unTC, unaDescripcion, unPuerto, Ccontenedores, estadoSolicitud){
         this.id = id;
         this.tipoDeMercaderia = unTC;
         this.descripcion = unaDescripcion;
