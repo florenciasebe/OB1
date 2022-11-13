@@ -12,6 +12,7 @@ let listaDeViajes = new Array ();
 
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- MANIFIESTO DE CARGA --------------------------------//
+
 // CARGAR SLC PARA MANIFIESTO // 
 function cargarSlcManifiesto(){
     let comboManifiesto = document.querySelector("#slcViaje");
@@ -71,7 +72,8 @@ function cargarComboAsigancionViajes(){
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
     //asignacion de variables
-    
+    let solicitud = document.querySelector("#slcSolicitudesPendientes");
+    let viaje = document.querySelector("#slcViajes");
    
     //Validaciones
     //al asginar un viaje la solicitud cambia a estado CONFRIMADA
