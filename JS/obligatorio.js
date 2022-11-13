@@ -52,7 +52,7 @@ function cargarComboAsigancionViajes(){
             comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
         }
     }
-    // Esto es un evento que se ejecuta cuando el usuario selecciona una solicitud
+    // Evento que se ejecuta cuando el usuario selecciona una solicitud
     comboSolicitudesDisponibles.onchange = function(){
         let solicitudId = document.querySelector("#slcSolicitudesPendientes").value;
         let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
@@ -65,14 +65,13 @@ function cargarComboAsigancionViajes(){
                         "fecha de llegada: "+viajes.fechaLlegada+"</option>";
             }
         }
-    };
+    }
 }
 //VALIDAR DATOS PARA ASIGNAR VIAJE //
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
     //asignacion de variables
-    let viaje = getViajeSeleccionado();
-    let solicitud = getSolicitudSeleccionada();
+    
    
     //Validaciones
     //al asginar un viaje la solicitud cambia a estado CONFRIMADA
@@ -80,15 +79,6 @@ function asignarViaje(){
     //fecha tiene que ser post a hoy
 }
 
-// capturar id's y las cantidades
-
-//LEVANTAR DATOS DE ASIGANCION // 
-function getViajeSeleccionado() {
-    return document.querySelector("#slcViajes").value;
-}
-function getSolicitudSeleccionada() {
-    return document.querySelector("#slcSolicitudesPendientes").value;
-}
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- CREAR VIAJE --------------------------------//
 
