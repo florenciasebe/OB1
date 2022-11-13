@@ -10,6 +10,9 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
+//----------------------------------------------------------------------------------------------------//
+//-------------------------------- SOLICITUDES PENDIENTES --------------------------------//
+
 //TABLA DINAMICA PARA SOLICITUDES PENDIENTES // 
 function cargarTablaSP(){
     let tablaspHTML = "<table border=1>";
