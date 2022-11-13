@@ -22,6 +22,7 @@ function cargarTablaSP(){
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
 }
+
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ASIGNAR VIAJE A SOLICITUDES PENDIENTES --------------------------------//
 
@@ -410,6 +411,7 @@ function solicitudesPendientes (){
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divSolicitudesPendientes").style.display="block"
     cargarTablaSP()
+    buscarPorDescripcion()
 }
 
 // PANTALLAS EMPRESAS // 
