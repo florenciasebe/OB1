@@ -10,7 +10,7 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
-// INTENTO DE CREAR TABLA PARA SOLICITUDES PENDIENTES // 
+//TABLA DINAMICA PARA SOLICITUDES PENDIENTES // 
 function cargarTablaSP(){
     let tablaspHTML = "<table border=1>";
     tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Estado</th><th></th></tr>"
@@ -22,6 +22,8 @@ function cargarTablaSP(){
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
 }
+//----------------------------------------------------------------------------------------------------//
+//-------------------------------- ASIGNAR VIAJE A SOLICITUDES PENDIENTES --------------------------------//
 
 // CARGAR COMBO DINAMICO DE ASIGNACION DE VIAJES // 
 function cargarComboAsigancionViajes(){
@@ -34,8 +36,9 @@ function cargarComboAsigancionViajes(){
     let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
     comboSolicitudesDisponibles.innerHTML = "";
     for(let solicitudes of listaDeSolicitudes){
+        if (solicitudes.estado == "PENDIENTE")
         comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
-    }
+    }   
 }
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- CREAR VIAJE --------------------------------//
