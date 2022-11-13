@@ -38,6 +38,8 @@ function cargarComboAsigancionViajes(){
     }
 }
 
+//-------------------------------- CREAR VIAJE --------------------------------//
+
 //CARGAR COMBO DE EMPRESAS DISPONIBLES PARA ELEGIR EN CREAR VIAJE //
 function cargarComboEmpresasDisponibles(){
     let comboEmpresasDisponibles = document.querySelector("#slcNombreEmpresa");
@@ -46,7 +48,6 @@ function cargarComboEmpresasDisponibles(){
         comboEmpresasDisponibles.innerHTML+="<option>"+empresas.nombre+"</option>";
     }
 }
-
 //VALIDAR DATOS DE CREAR VIAJE DE BUQUE //
 document.querySelector("#btnNewViaje").addEventListener("click", validarCrearViaje);
 function validarCrearViaje(){
@@ -63,14 +64,13 @@ function validarCrearViaje(){
         alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
     }
     else {
-        let id = listaDeSolicitudes.length + 1;
-        let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores);
+        let id = listaDeViajes.length + 1;
+        let viajes = new Viajes(id, nombreBuque, maximoContenedores, nombreEmpresa, fechaLlegada);
         //guarda en el array
-        listaDeSolicitudes.push(solicitudes); 
-        alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
+        listaDeViajes.push(viajes); 
+        alert ("Viajes creado con exito. Dirijase a asignar viajes pendientes para completar su viaje")
     }
 }
-
 //LEVANTAR DATOS DE CREAR VIAJE DE BUQUE // 
 function getNombreDelBuque() {
     return document.querySelector("#txtNombreBuque").value;
@@ -84,16 +84,8 @@ function getNombreDeEmpresa() {
 function getFechaDeLlegada() {
     return document.querySelector("#txtFechaLlegada").value;
 }
-function validarUsuarioEmpresa(usuario) {
-    let usuarioEmpresaValido = false;
-    //valido si es empresa y recorro array empresa
-    for(let empresa of listaDeEmpresas){
-        if (empresa.usuario == usuario){
-            usuarioCalveValido = true;
-        }
-    } 
-    return usuarioEmpresaValido;
-}
+
+//-------------------------------- NUEVA SOLICITUD DE CARGA --------------------------------//
 
 //VALIDAR DATOS DE SOLICITUD //
 document.querySelector("#btnConfirmarSolicitud").addEventListener("click", validarSolicitud);
@@ -134,36 +126,7 @@ function getCantidadContenedores(){
     return document.querySelector("#txtCantidadContenedores").value;
 }
 
-// FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
-document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
-function registrarImpo(){
-    //asignacion de variables
-    let nombreImpo = getNombreImportador();
-    let usuarioImpo = getUsuarioImportador();
-    let fotoImpo = getFotoImportador();
-    let claveImpo = getClaveImportador();
-    // Validaciones 
-    if (nombreImpo == "" || usuarioImpo == ""|| !fotoImpo || claveImpo == "" ) {
-        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
-    }
-    else if(!validarClave(claveImpo)){
-        alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
-    } 
-    else if(!esUsuarioValido(usuarioImpo)){
-        alert ("Usuario ya registrado. Por favor, intentelo con otro nombre de usuario.")
-    }
-    else {
-        let id = listaDeImportador.length + 1;
-        let importador = new Importador(id,nombreImpo,
-            usuarioImpo, 
-            fotoImpo.name,
-            nombreImpo);
-            //guarda en el array
-        listaDeImportador.push(importador); 
-        alert ("usuario registrado correctamente")
-        irHome();
-    }
-}
+//-------------------------------- INICIO DE SESION (EMPRESA E IMPORTADOR) --------------------------------//
 
 // FORMULARIO INICIO DE SESION - VALIDACIONES - CONFIRMAR INICIO SESION //
 function iniciarSesion(){
@@ -215,6 +178,39 @@ function getUsuarioInicio (){
 }
 function getClaveInicio (){
     return document.querySelector("#txtClave").value;
+}
+
+//-------------------------------- REGISTRO DE IMPORTADOR --------------------------------//
+
+// FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
+document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
+function registrarImpo(){
+    //asignacion de variables
+    let nombreImpo = getNombreImportador();
+    let usuarioImpo = getUsuarioImportador();
+    let fotoImpo = getFotoImportador();
+    let claveImpo = getClaveImportador();
+    // Validaciones 
+    if (nombreImpo == "" || usuarioImpo == ""|| !fotoImpo || claveImpo == "" ) {
+        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+    }
+    else if(!validarClave(claveImpo)){
+        alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
+    } 
+    else if(!esUsuarioValido(usuarioImpo)){
+        alert ("Usuario ya registrado. Por favor, intentelo con otro nombre de usuario.")
+    }
+    else {
+        let id = listaDeImportador.length + 1;
+        let importador = new Importador(id,nombreImpo,
+            usuarioImpo, 
+            fotoImpo.name,
+            nombreImpo);
+            //guarda en el array
+        listaDeImportador.push(importador); 
+        alert ("usuario registrado correctamente")
+        irHome();
+    }
 }
 
 // LEVANTAR DATOS DEL FORMULARIO DE REGISTRO //
@@ -301,6 +297,8 @@ function esUsuarioValido(user) {
     return usuarioValido;
 }
 
+//-------------------------------- PANTALLAS (DIVS) MOSTRAR Y OCULTAR --------------------------------//
+
 // PANTALLAS // 
 inicio()
 function inicio (){
@@ -340,19 +338,6 @@ document.querySelector("#btnregistrarImportador").addEventListener("click", irRe
 document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion );
 document.querySelector("#btnLogout").addEventListener("click", irHome);
 
-// PANTALLAS GENERALES//
-/*function iniciarSesion(){
-    if (document.querySelector("#slcElegirUsuario").value == "e") {
-        ocultarTodo()
-        document.querySelector("#divMenuEmpresa").style.display="block"
-        document.querySelector("#divSalir").style.display="block"
-    }
-    else {
-        ocultarTodo()
-        document.querySelector("#divMenuImportador").style.display="block"
-        document.querySelector("#divSalir").style.display="block"
-    }
-}*/
 function irHome(){
     ocultarTodo()
     inicio()
@@ -440,7 +425,7 @@ function cargaPeligrosa (){
     document.querySelector("#divCargasPeligrosas").style.display="block"
 }
 
-// PRECARGA DE TODOS LOS DATOS //
+//-------------------------------- PRE CARGA DE DATOS SEGUN LETRA --------------------------------//
 
 //Precarga de datos de viajes
 let Viaje1= new Viajes (1, "Buque1", "10", "rapido", "02/02/2023");
