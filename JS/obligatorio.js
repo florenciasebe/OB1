@@ -94,7 +94,6 @@ function cargarComboEmpresasDisponibles(){
     }
 }
 //VALIDAR DATOS DE CREAR VIAJE DE BUQUE //
-
 document.querySelector("#btnNewViaje").addEventListener("click", validarCrearViaje);
 function validarCrearViaje(){
     let campoFecha = document.querySelector("#txtFechaLlegada");
