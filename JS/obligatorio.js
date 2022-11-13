@@ -65,10 +65,10 @@ function validarCrearViaje(){
     }
     else {
         let id = listaDeViajes.length + 1;
-        let viajes = new Viajes(id, nombreBuque, maximoContenedores, nombreEmpresa, fechaLlegada);
+        let viajes = new Viajes(id, nombreBuque, maxCont, nombreEmpresa, fechaLlegada);
         //guarda en el array
         listaDeViajes.push(viajes); 
-        alert ("Viajes creado con exito. Dirijase a asignar viajes pendientes para completar su viaje")
+        alert ("Viaje creado con exito. Dirijase a asignar viajes pendientes para completar su viaje")
     }
 }
 //LEVANTAR DATOS DE CREAR VIAJE DE BUQUE // 
@@ -79,7 +79,7 @@ function getMaximoDeContenedores() {
     return document.querySelector("#txtCantidadMaxContenedores").value;
 }
 function getNombreDeEmpresa() {
-    return document.querySelector("#txtNombreEmpresa").value;
+    return document.querySelector("#slcNombreEmpresa").value;
 }
 function getFechaDeLlegada() {
     return document.querySelector("#txtFechaLlegada").value;
@@ -104,7 +104,7 @@ function validarSolicitud(){
     }
     else {
         let id = listaDeSolicitudes.length + 1;
-        let solicitudes = new Solicitudes(id, unTC, unaDescripcion, unPuerto, Ccontenedores, "PENDIENTE");
+        let solicitudes = new Solicitudes(id, tipoMercaderia, descMercaderia, puertoOrigen, cantiContenedores, "PENDIENTE")
         //guarda en el array
         listaDeSolicitudes.push(solicitudes); 
         alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
@@ -202,10 +202,7 @@ function registrarImpo(){
     }
     else {
         let id = listaDeImportador.length + 1;
-        let importador = new Importador(id,nombreImpo,
-            usuarioImpo, 
-            fotoImpo.name,
-            nombreImpo);
+        let importador = new Importador(id, nombreImpo, usuarioImpo, fotoImpo.name);
             //guarda en el array
         listaDeImportador.push(importador); 
         alert ("usuario registrado correctamente")
