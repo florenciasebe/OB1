@@ -77,8 +77,6 @@ function asignarViaje(){
     //Validaciones
     // al asginar un viaje la solicitud cambia a estado CONFRIMADA y se agrega el id del viaje
     // restar los lugares dispoibles - contenedores de la solicitud
-
-   
 }
 
 //----------------------------------------------------------------------------------------------------//
