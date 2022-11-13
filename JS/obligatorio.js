@@ -126,8 +126,6 @@ function getFechaDeLlegada() {
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- NUEVA SOLICITUD DE CARGA --------------------------------//
 
-//hola
-
 //VALIDAR DATOS DE SOLICITUD //
 document.querySelector("#btnConfirmarSolicitud").addEventListener("click", validarSolicitud);
 function validarSolicitud(){
