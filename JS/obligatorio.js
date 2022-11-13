@@ -37,7 +37,7 @@ function cargarComboAsigancionViajes(){
         comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
     }
 }
-
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- CREAR VIAJE --------------------------------//
 
 //CARGAR COMBO DE EMPRESAS DISPONIBLES PARA ELEGIR EN CREAR VIAJE //
@@ -84,7 +84,7 @@ function getNombreDeEmpresa() {
 function getFechaDeLlegada() {
     return document.querySelector("#txtFechaLlegada").value;
 }
-
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- NUEVA SOLICITUD DE CARGA --------------------------------//
 
 //VALIDAR DATOS DE SOLICITUD //
@@ -125,7 +125,7 @@ function getPuertoOrigen(){
 function getCantidadContenedores(){
     return document.querySelector("#txtCantidadContenedores").value;
 }
-
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- INICIO DE SESION (EMPRESA E IMPORTADOR) --------------------------------//
 
 // FORMULARIO INICIO DE SESION - VALIDACIONES - CONFIRMAR INICIO SESION //
@@ -179,7 +179,7 @@ function getUsuarioInicio (){
 function getClaveInicio (){
     return document.querySelector("#txtClave").value;
 }
-
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- REGISTRO DE IMPORTADOR --------------------------------//
 
 // FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
@@ -296,7 +296,7 @@ function esUsuarioValido(user) {
     }
     return usuarioValido;
 }
-
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- PANTALLAS (DIVS) MOSTRAR Y OCULTAR --------------------------------//
 
 // PANTALLAS // 
@@ -425,6 +425,7 @@ function cargaPeligrosa (){
     document.querySelector("#divCargasPeligrosas").style.display="block"
 }
 
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- PRE CARGA DE DATOS SEGUN LETRA --------------------------------//
 
 //Precarga de datos de viajes
