@@ -11,6 +11,17 @@ let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
 //----------------------------------------------------------------------------------------------------//
+//-------------------------------- MANIFIESTO DE CARGA --------------------------------//
+// CARGAR SLC PARA MANIFIESTO // 
+function cargarSlcManifiesto(){
+    let comboManifiesto = document.querySelector("#slcViaje");
+    comboManifiesto.innerHTML = "";
+    for(let viajes of listaDeViajes){
+        comboManifiesto.innerHTML+= "<option>"+"Nro de viaje: "+viajes.id+", fecha de llegada: "+viajes.fechaLlegada+"</option>";
+    }  
+}
+
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- SOLICITUDES PENDIENTES --------------------------------//
 
 //TABLA DINAMICA PARA SOLICITUDES PENDIENTES // 
@@ -29,53 +40,45 @@ function cargarTablaSP(){
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ASIGNAR VIAJE A SOLICITUDES PENDIENTES --------------------------------//
 
-// CARGAR COMBO DINAMICO DE ASIGNACION DE VIAJES // 
+// CARGAR SLC DINAMICO DE ASIGNACION DE VIAJES // 
 function cargarComboAsigancionViajes(){
-    let comboViajesDisponibles = document.querySelector("#slcViajes");
-    comboViajesDisponibles.innerHTML = "";
-    for(let viajes of listaDeViajes){
-        comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"
-        +viajes.nombreBuque+", "+
-        viajes.cantidadDisponible+" lugares disponibles, "+
-        "fecha de llegada: "+viajes.fechaLlegada+"</option>";
-    }
     let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
+    let comboViajesDisponibles = document.querySelector("#slcViajes");
     comboSolicitudesDisponibles.innerHTML = "";
+    
+    comboSolicitudesDisponibles.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
     for(let solicitudes of listaDeSolicitudes){
         if (solicitudes.estado == "PENDIENTE"){
-        comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
+            comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
         }
-    }   
+    }
+    // Evento que se ejecuta cuando el usuario selecciona una solicitud
+    comboSolicitudesDisponibles.onchange = function(){
+        let solicitudId = document.querySelector("#slcSolicitudesPendientes").value;
+        let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
+        comboViajesDisponibles.innerHTML = "";
+        for(let viajes of listaDeViajes){
+            if (viajes.cantidadDisponible >= solicitud.cantidadContenedores) {
+                comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"
+                        +viajes.nombreBuque+", "+
+                        viajes.cantidadDisponible+" lugares disponibles, "+
+                        "fecha de llegada: "+viajes.fechaLlegada+"</option>";
+            }
+        }
+    }
 }
 //VALIDAR DATOS PARA ASIGNAR VIAJE //
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
     //asignacion de variables
-    let viaje = getViajeSeleccionado();
-    let solicitud = getSolicitudSeleccionada();
     
-    // Validaciones
-    if(maxCont < 1){
-        alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
-    }
-    else {
-        let id = listaDeViajes.length + 1;
-        let viajes = new Viajes(id, nombreBuque, maxCont, nombreEmpresa, fechaLlegada);
-        //guarda en el array
-        listaDeViajes.push(viajes); 
-        alert ("Viaje creado con exito. Dirijase a asignar viajes pendientes para completar su viaje")
-    }
+   
+    //Validaciones
+    //al asginar un viaje la solicitud cambia a estado CONFRIMADA
+    //contenedores solicitud <= contenedores disponibles de viaje asginar, sino mensaje de error
+    //fecha tiene que ser post a hoy
 }
 
-// capturar id's y las cantidades
-
-//LEVANTAR DATOS DE ASIGANCION // 
-function getViajeSeleccionado() {
-    return document.querySelector("#slcViajes").value;
-}
-function getSolicitudSeleccionada() {
-    return document.querySelector("#slcSolicitudesPendientes").value;
-}
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- CREAR VIAJE --------------------------------//
 
@@ -448,6 +451,7 @@ function manifiesto(){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divManifiesto").style.display="block"
+    cargarSlcManifiesto()
 }
 function habilitarImportadores (){
     ocultarTodo()
@@ -466,18 +470,18 @@ function cargaPeligrosa (){
 //-------------------------------- PRE CARGA DE DATOS SEGUN LETRA --------------------------------//
 
 //Precarga de datos de viajes
-let Viaje1= new Viajes (1, "Buque1", "10", "rapido", "02/02/2023");
-let Viaje2= new Viajes (2, "Buque2", "7", "facil", "15/01/2023");
-let Viaje3= new Viajes (1, "Buque3", "8", "pediloya", "05/03/2023");
-let Viaje4= new Viajes (2, "Buque4", "15", "eficaz", "19/01/2023");
+let Viaje1= new Viajes (1, "Buque1", 10, "rapido", "02/02/2023");
+let Viaje2= new Viajes (2, "Buque2", 7, "facil", "15/01/2023");
+let Viaje3= new Viajes (3, "Buque3", 8, "pediloya", "05/03/2023");
+let Viaje4= new Viajes (4, "Buque4", 2, "eficaz", "19/01/2023");
 listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
-let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3","PENDIENTE");
-let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", "4","CONFIRMADO");
-let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", "1","PENDIENTE");
-let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2","CONFIRMADO");
-let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", "6","CONFIRMADO");
+let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", 3,"PENDIENTE");
+let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", 4,"CONFIRMADO");
+let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", 1,"PENDIENTE");
+let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", 2,"CONFIRMADO");
+let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", 6,"CONFIRMADO");
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
@@ -489,7 +493,7 @@ let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
 listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
 
 //Precarga de datos de las empresas
-let Empresa1= new Empresa (1, "administrador", "admin", "Admin22");
+let Empresa1= new Empresa (1, "administrador", "admin", "1234");
 let Empresa2= new Empresa (2, "rapido", "arapido", "Ati22");
 let Empresa3= new Empresa (3, "pediloya", "apediloya", "Ati22");
 let Empresa4= new Empresa (4, "eficaz", "aeficaz", "Ati22");
