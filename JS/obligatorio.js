@@ -47,7 +47,7 @@ function cargarComboAsigancionViajes(){
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
     //asignacion de variables
-    let viaje = getContenedoresDisponiblesViaje();
+    let viaje = getViajeSeleccionado();
     let solicitud = getSolicitudSeleccionada();
     
     // Validaciones
@@ -62,12 +62,8 @@ function asignarViaje(){
         alert ("Viaje creado con exito. Dirijase a asignar viajes pendientes para completar su viaje")
     }
 }
-// encontrar id's y las cantidades
 
-function getContenedoresDisponiblesViaje(){
-    let viaje = getViajeSeleccionado
-
-}
+// capturar id's y las cantidades
 
 //LEVANTAR DATOS DE ASIGANCION // 
 function getViajeSeleccionado() {
