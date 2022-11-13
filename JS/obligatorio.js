@@ -94,16 +94,26 @@ function cargarComboEmpresasDisponibles(){
     }
 }
 //VALIDAR DATOS DE CREAR VIAJE DE BUQUE //
+
 document.querySelector("#btnNewViaje").addEventListener("click", validarCrearViaje);
 function validarCrearViaje(){
+    let campoFecha = document.querySelector("#txtFechaLlegada");
+    
     //asignacion de variables
     let nombreBuque = getNombreDelBuque();
     let maxCont = getMaximoDeContenedores();
     let nombreEmpresa = getNombreDeEmpresa();
     let fechaLlegada = getFechaDeLlegada();
+    
     // Validaciones 
-    if (nombreBuque == "" || maxCont == ""|| nombreEmpresa == "" || fechaLlegada == "" ) {
+    if (nombreBuque == "" || maxCont == ""|| fechaLlegada == "" ) {
         alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+    }
+    else if(fechaLlegada < campoFecha.min){
+        alert ("La fecha debe ser posterior al dia de hoy")
+    }
+    else if(nombreEmpresa == "--" ){
+        alert ("Debe seleccionar una empresa.")
     }
     else if(maxCont < 1){
         alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
