@@ -30,9 +30,11 @@ function cargarComboAsigancionViajes(){
     let comboViajesDisponibles = document.querySelector("#slcViajes");
     comboViajesDisponibles.innerHTML = "";
     for(let viajes of listaDeViajes){
-        comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"+viajes.nombreBuque+", "+viajes.maximoContenedores+" lugares disponibles, fecha de llegada: "+viajes.fechaLlegada+"</option>";
+        comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"
+        +viajes.nombreBuque+", "+
+        viajes.cantidadDisponible+" lugares disponibles, "+
+        "fecha de llegada: "+viajes.fechaLlegada+"</option>";
     }
-
     let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
     comboSolicitudesDisponibles.innerHTML = "";
     for(let solicitudes of listaDeSolicitudes){
@@ -40,6 +42,39 @@ function cargarComboAsigancionViajes(){
         comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
         }
     }   
+}
+//VALIDAR DATOS PARA ASIGNAR VIAJE //
+document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
+function asignarViaje(){
+    //asignacion de variables
+    let viaje = getContenedoresDisponiblesViaje();
+    let solicitud = getSolicitudSeleccionada();
+    
+    // Validaciones
+    if(maxCont < 1){
+        alert ("Se debe ingresar al menos 1 contenedor para poder crear el viaje")
+    }
+    else {
+        let id = listaDeViajes.length + 1;
+        let viajes = new Viajes(id, nombreBuque, maxCont, nombreEmpresa, fechaLlegada);
+        //guarda en el array
+        listaDeViajes.push(viajes); 
+        alert ("Viaje creado con exito. Dirijase a asignar viajes pendientes para completar su viaje")
+    }
+}
+// encontrar id's y las cantidades
+
+function getContenedoresDisponiblesViaje(){
+    let viaje = getViajeSeleccionado
+
+}
+
+//LEVANTAR DATOS DE ASIGANCION // 
+function getViajeSeleccionado() {
+    return document.querySelector("#slcViajes").value;
+}
+function getSolicitudSeleccionada() {
+    return document.querySelector("#slcSolicitudesPendientes").value;
 }
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- CREAR VIAJE --------------------------------//
