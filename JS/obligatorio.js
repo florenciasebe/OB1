@@ -36,8 +36,9 @@ function cargarComboAsigancionViajes(){
     let comboSolicitudesDisponibles = document.querySelector("#slcSolicitudesPendientes");
     comboSolicitudesDisponibles.innerHTML = "";
     for(let solicitudes of listaDeSolicitudes){
-        if (solicitudes.estado == "PENDIENTE")
+        if (solicitudes.estado == "PENDIENTE"){
         comboSolicitudesDisponibles.innerHTML+= "<option value='"+solicitudes.id+"'>"+solicitudes.tipoDeMercaderia+", "+solicitudes.cantidadContenedores+" contenedores"+"</option>";
+        }
     }   
 }
 //----------------------------------------------------------------------------------------------------//
@@ -436,10 +437,10 @@ let Viaje4= new Viajes (2, "Buque4", "15", "eficaz", "19/01/2023");
 listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
-let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3","CONFIRMADO");
+let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", "3","PENDIENTE");
 let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", "4","CONFIRMADO");
 let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", "1","PENDIENTE");
-let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2","PENDIENTE");
+let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", "2","CONFIRMADO");
 let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", "6","CONFIRMADO");
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
