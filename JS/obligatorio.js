@@ -12,6 +12,7 @@ let listaDeViajes = new Array ();
 
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- MANIFIESTO DE CARGA --------------------------------//
+
 // CARGAR SLC PARA MANIFIESTO // 
 function cargarSlcManifiesto(){
     let comboManifiesto = document.querySelector("#slcViaje");
@@ -71,12 +72,13 @@ function cargarComboAsigancionViajes(){
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
     //asignacion de variables
-    
-   
+    let solicitud = document.querySelector("#slcSolicitudesPendientes");
+    let viaje = document.querySelector("#slcViajes");
     //Validaciones
-    //al asginar un viaje la solicitud cambia a estado CONFRIMADA
-    //contenedores solicitud <= contenedores disponibles de viaje asginar, sino mensaje de error
-    //fecha tiene que ser post a hoy
+    // al asginar un viaje la solicitud cambia a estado CONFRIMADA y se agrega el id del viaje
+    // restar los lugares dispoibles - contenedores de la solicitud
+
+   
 }
 
 //----------------------------------------------------------------------------------------------------//
@@ -86,6 +88,7 @@ function asignarViaje(){
 function cargarComboEmpresasDisponibles(){
     let comboEmpresasDisponibles = document.querySelector("#slcNombreEmpresa");
     comboEmpresasDisponibles.innerHTML = "";
+    comboEmpresasDisponibles.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
     for (let empresas of listaDeEmpresas){
         comboEmpresasDisponibles.innerHTML+="<option>"+empresas.nombre+"</option>";
     }
