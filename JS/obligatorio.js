@@ -28,16 +28,26 @@ function cargarSlcManifiesto(){
 //TABLA DINAMICA PARA SOLICITUDES PENDIENTES // 
 function cargarTablaSP(){
     let tablaspHTML = "<table border=1>";
-    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Estado</th><th></th></tr>"
+    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Estado</th></tr>"
     for(let solicitudes of listaDeSolicitudes){
         tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
         "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
-        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+
-        "</td><td>"+"<button type=\"button\" id=\"btnBorrarUno\"><span class=\"glyphicon glyphicon-trash\"></span></button></td></tr>";
+        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+"</td></tr>";
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
 }
+// CANCELAR SOLICITUD //
+document.querySelector("#btnCancelar").addEventListener("click", cancelarSolicitud);
+function cancelarSolicitud(){
+    if (confirm('Aprete "Aceptar" para cancelar su solicitud de pedido')) {
+        txt = "ok, cancelar solicitud de pedido";
+      } else {
+        txt = "cancelar opcion";
+      }
+      document.getElementById("demo").innerHTML = txt;    
+}
+
 
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ASIGNAR VIAJE A SOLICITUDES PENDIENTES --------------------------------//
