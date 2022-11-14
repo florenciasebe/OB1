@@ -17,11 +17,13 @@ let listaDeViajes = new Array ();
 //TABLA DINAMICA PARA EL ROLLOVER // 
 function cargarTablaRollover(){
     let tablaspHTML = "<table border=1>";
-    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Estado</th></tr>"
+    tablaspHTML += "<tr><th>Viaje asignado</th><th>Nro. de solicitud</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Fecha de viaje</th></tr>"
     for(let solicitudes of listaDeSolicitudes){
-        tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
+        if (solicitudes.estado == "CONFIRMADO"){
+        tablaspHTML += "<tr><td>"+solicitudes.idViaje+"</td><td>"+solicitudes.id+
         "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
-        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+"</td></tr>";
+        "</td><td>"+solicitudes.cantidadContenedores+"</td></tr>";
+        }
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
