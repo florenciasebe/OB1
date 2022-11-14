@@ -24,17 +24,17 @@ function cargarSlcManifiesto(){
     }  
 }
 //TABLA DINAMICA de MANIFIESTO segun SLC // 
-/*function cargarTablaSP(){
+function cargarTablaManisiesto(){
     let tablaspHTML = "<table border=1>";
-    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Estado</th></tr>"
+    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>"
     for(let solicitudes of listaDeSolicitudes){
         tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
         "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
-        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+"</td></tr>";
+        "</td><td>"+solicitudes.cantidadContenedores+"</td></tr>";
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
-}*/
+}
 
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- SOLICITUDES PENDIENTES --------------------------------//
