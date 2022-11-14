@@ -18,10 +18,23 @@ let listaDeViajes = new Array ();
 function cargarSlcManifiesto(){
     let comboManifiesto = document.querySelector("#slcViaje");
     comboManifiesto.innerHTML = "";
+    comboManifiesto.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
     for(let viajes of listaDeViajes){
-        comboManifiesto.innerHTML+= "<option>"+"Nro de viaje: "+viajes.id+", fecha de llegada: "+viajes.fechaLlegada+"</option>";
+        comboManifiesto.innerHTML+= "<option value='"+viajes.id+"'>"+"Nro de viaje: "+viajes.id+", fecha de llegada: "+viajes.fechaLlegada+"</option>";
     }  
 }
+//TABLA DINAMICA de MANIFIESTO segun SLC // 
+/*function cargarTablaSP(){
+    let tablaspHTML = "<table border=1>";
+    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Estado</th></tr>"
+    for(let solicitudes of listaDeSolicitudes){
+        tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
+        "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
+        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+"</td></tr>";
+    }
+    tablaspHTML += "</table>";
+    document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
+}*/
 
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- SOLICITUDES PENDIENTES --------------------------------//
@@ -62,7 +75,6 @@ function cancelarSolicitud(){
         alert ("Solicitud cancelada con exito")
     }   
 }
-
 
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ASIGNAR VIAJE A SOLICITUDES PENDIENTES --------------------------------//

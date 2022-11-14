@@ -270,51 +270,13 @@
 
 <!--Manifiesto de carga-->
     <div id="divManifiesto">
-        <h1>Manifiesto de carga </h1>
-        <form>
-            <select id="slcViaje">
-                <option disabled selected>Selecciona una opción</option>
-                <!--se va a cargar automatico los viajes existentes-->
-            </select><br>
-            <br>
-            <input type="button" id="btnCarganManifiesto" value="Cargar manifiesto"/>  
-        </form>    
-        <br><br>
-        <style>
-            table, th, td {
-                border: 0.5px solid rgb(0, 0, 0);
-                border-collapse: collapse;
-            }
-            th {
-                background-color: rgb(235, 236, 253);
-                text-align: center;
-            }
-            td {
-                text-align: center;
-            }
-        </style>
-        <table style="width:50%" id="myTable">
-            <thead>
-            <tr>
-                <th>Origen</th>
-                <th>Contenedor</th>
-                <th>Importador</th>
-                <th>Descripcion</th>
-                <th>Tipo de mercaderia</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>datosautomatizados</td>
-                <td>datosautomatizados</td>
-                <td>datosautomatizados</td>
-                <td>datosautomatizados</td>
-                <td>datosautomatizados</td>
-            </tr>
-            </tbody>
-        </table> <br> <br>
-        <input type="button" id="btnGuardadManifiesto" value="Guardar manifiesto"/>  
+        <h1>Manifiesto de carga </h1>  
+        <p>Elegir viaje:</p>
+        <select id="slcViajeManifiesto"></select><br>
+        <input type="button" id="btnCarganManifiesto" value="Cargar manifiesto"/><br>
+        <p id="tblManifiesto"></p>
     </div>
+
 
 <!--Cargas peligrosas-->
     <div id="divCargasPeligrosas"> 
