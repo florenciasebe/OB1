@@ -4,6 +4,7 @@ import {Importador} from './MODELOS/importador.js';
 import {Solicitudes} from './MODELOS/solicitudes.js';
 import {Viajes} from './MODELOS/viajes.js';
 
+// Arrays donde guardamos las precargas
 let usuarioConectado=undefined; //usuario que esta conectado
 let listaDeImportador = new Array ();
 let listaDeEmpresas = new Array ();
