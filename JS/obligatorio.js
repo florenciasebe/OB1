@@ -12,8 +12,48 @@ let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
 //----------------------------------------------------------------------------------------------------//
-//-------------------------------- MANIFIESTO DE CARGA --------------------------------//
+//-------------------------------- ROLLOVER --------------------------------//
 
+//TABLA DINAMICA PARA EL ROLLOVER // 
+function cargarTablaRollover(){
+    let tablaspHTML = "<table border=1>";
+    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Estado</th></tr>"
+    for(let solicitudes of listaDeSolicitudes){
+        tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
+        "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
+        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+"</td></tr>";
+    }
+    tablaspHTML += "</table>";
+    document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
+}
+// CARGAR SLC DINAMICO DE VIAJES A LOS QUE PUEDO HACER ROLLOVER // 
+function cargarComboCancelarRollover(){
+    let comboCancelarSolicitud = document.querySelector("#slcCancelarSolicitud");
+    comboCancelarSolicitud.innerHTML = "";
+    comboCancelarSolicitud.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
+    for(let solicitudes of listaDeSolicitudes){
+        if (solicitudes.estado == "PENDIENTE"){
+            comboCancelarSolicitud.innerHTML+= "<option value='"+solicitudes.id+"'>"+"Nro. de solicitud: "+solicitudes.id+" -> "+
+            solicitudes.descripcion+"</option>";
+        }
+    }
+}
+// CONFIRMAR ROLLOVER //
+document.querySelector("#btnCancelar").addEventListener("click", cancelarSolicitud);
+function confirmarRollover(){
+    if (confirm('Aprete "Aceptar" para cancelar su solicitud de pedido')) {
+        let solicitudId = document.querySelector("#slcCancelarSolicitud").value;
+        let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
+         //modificar solicestado a confirmado 
+        solicitud.estado = "CANCELADO";
+        cargarTablaSP()
+        alert ("Solicitud cancelada con exito")
+    }   
+}
+
+
+//----------------------------------------------------------------------------------------------------//
+//-------------------------------- MANIFIESTO DE CARGA --------------------------------//
 // CARGAR SLC Y TABLA PARA MANIFIESTO // 
 function cargarSlcManifiesto() {
     let comboManifiesto = document.querySelector("#slcViajeManifiesto");
