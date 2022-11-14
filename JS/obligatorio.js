@@ -32,7 +32,8 @@ function cargarTablaSP(){
     for(let solicitudes of listaDeSolicitudes){
         tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
         "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
-        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+"</td></tr>"
+        "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+
+        "</td><td>"+<button type="button" class="btn" id="btnBorrarUno"><span class="glyphicon glyphicon-trash"></span></button>"</td></tr>"
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
@@ -431,7 +432,6 @@ function solicitudesPendientes (){
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divSolicitudesPendientes").style.display="block"
     cargarTablaSP()
-    buscarPorDescripcion()
 }
 
 // PANTALLAS EMPRESAS // 
