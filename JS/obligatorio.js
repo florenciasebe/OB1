@@ -204,7 +204,7 @@ function iniciarSesion(){
     let claveInicio = getClaveInicio();
     // Validaciones 
     if (tipoUsuario != "e" && tipoUsuario != "i" || usuarioInicio == ""|| claveInicio == "" ) {
-        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+        alert ("Todos los campos son obligatorios. Por favor vuelve a intentarlo.")
     }
     // llamar la validacion del usuario y de clave por medio del array
     else if (!validarClaveUsuario(tipoUsuario, usuarioInicio, claveInicio)) { 
@@ -217,12 +217,12 @@ function iniciarSesion(){
 
 // RECORRER ARRAY DE EMPRESA E IMPORTADOR PARA VALIDAR CLAVE Y USUARIO//
 function validarClaveUsuario(tipo, usuario, clave) {
-    let usuarioCalveValido = false;
+    let usuarioClaveValido = false;
     //valido si es empresa y recorro array empresa
     if (tipo == "e") {
         for(let empresa of listaDeEmpresas){
             if (empresa.usuario == usuario && empresa.clave == clave ){
-                usuarioCalveValido = true;
+                usuarioClaveValido = true;
             }
         } 
     }
@@ -230,11 +230,11 @@ function validarClaveUsuario(tipo, usuario, clave) {
     else if (tipo == "i"){
         for(let importador of listaDeImportador) { 
             if (importador.usuario == usuario && importador.clave == clave) {
-                usuarioCalveValido = true;
+                usuarioClaveValido = true;
             }
         } 
     }
-    return usuarioCalveValido;
+    return usuarioClaveValido;
 }
 
 // LEVANTAR DATOS DEL INICIO DE SESION //
