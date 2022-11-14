@@ -17,7 +17,7 @@ let listaDeViajes = new Array ();
 //TABLA DINAMICA PARA EL ROLLOVER // 
 function cargarTablaRollover(){
     let tablaspHTML = "<table border=1>";
-    tablaspHTML += "<tr><th>Viaje asignado</th><th>Nro. de solicitud</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th><th>Fecha de viaje</th></tr>"
+    tablaspHTML += "<tr><th>Viaje asignado</th><th>Nro. de solicitud</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>"
     for(let solicitudes of listaDeSolicitudes){
         if (solicitudes.estado == "CONFIRMADO"){
         tablaspHTML += "<tr><td>"+solicitudes.idViaje+"</td><td>"+solicitudes.id+
@@ -555,6 +555,7 @@ function rollover (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divRollover").style.display="block"
+    cargarTablaRollover()
 }
 function manifiesto(){
     ocultarTodo()
