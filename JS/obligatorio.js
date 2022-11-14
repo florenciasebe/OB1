@@ -16,7 +16,7 @@ let listaDeViajes = new Array ();
 
 // CARGAR SLC PARA MANIFIESTO // 
 function cargarSlcManifiesto(){
-    let comboManifiesto = document.querySelector("#slcViaje");
+    let comboManifiesto = document.querySelector("#slcViajeManifiesto");
     comboManifiesto.innerHTML = "";
     comboManifiesto.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
     for(let viajes of listaDeViajes){
@@ -24,27 +24,22 @@ function cargarSlcManifiesto(){
     }  
     // Evento que se ejecuta cuando el usuario selecciona un viaje
     comboManifiesto.onchange = function(){
-        let viajeId = document.querySelector("#slcViaje").value;
-        let viaje = listaDeViajes.find(viaje => viaje.id == viajeId);
+        let viajeId = document.querySelector("#slcViajeManifiesto").value;
         for(let solicitudes of listaDeSolicitudes){
-            if (solicitudes.idViaje == viaje.id) {
-                cargarTablaManisiesto()
-            }
+            if (solicitudes.idViaje == viajeId){
+                let tablaspHTML = "<table border=1>";
+                tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>";
+                tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
+                "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
+                "</td><td>"+solicitudes.cantidadContenedores+"</td></tr>";
+                tablaspHTML += "</table>";
+                document.querySelector("#tblManifiesto").innerHTML= tablaspHTML;
+            } else {
+                document.querySelector("#tblManifiesto").innerHTML= "El viaje seleccionado no tiene nignuna solicitud asociada aún.";
+            }  
         }
+        
     }
-}
-//TABLA DINAMICA de MANIFIESTO segun SLC // 
-function cargarTablaManisiesto(){
-    let tablaspHTML = "<table border=1>";
-    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>"
-    for(let solicitudes of listaDeSolicitudes){
-        tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
-        "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
-        "</td><td>"+solicitudes.cantidadContenedores+"</td></tr>";
-    }
-    tablaspHTML += "</table>";
-    document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
-  
 }
 
 //----------------------------------------------------------------------------------------------------//
