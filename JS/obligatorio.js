@@ -135,6 +135,7 @@ function asignarViaje(){
     solicitud.idViaje = viaje.id;
     // modificar restar los lugares dispoibles - contenedores de la solicitud
     viaje.cantidadDisponible = viaje.cantidadDisponible - solicitud.cantidadContenedores;
+    alert ("Asignacion confirmada.")
 }
 
 //----------------------------------------------------------------------------------------------------//
