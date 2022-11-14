@@ -33,7 +33,7 @@ function cargarTablaSP(){
         tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
         "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
         "</td><td>"+solicitudes.cantidadContenedores+"</td><td>"+solicitudes.estado+
-        "</td><td>"+<button type="button" class="btn" id="btnBorrarUno"><span class="glyphicon glyphicon-trash"></span></button>"</td></tr>"
+        "</td><td>"+"<button type=\"button\" id=\"btnBorrarUno\"><span class=\"glyphicon glyphicon-trash\"></span></button></td></tr>";
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
@@ -499,7 +499,7 @@ let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpie
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
-let Impo1= new Importador (1, "administrador", "admi", "Admin22", "img/foto.jpg");
+let Impo1= new Importador (1, "administrador", "admi", "1234", "img/foto.jpg");
 let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
 let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
 let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
