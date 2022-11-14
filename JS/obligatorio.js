@@ -22,6 +22,16 @@ function cargarSlcManifiesto(){
     for(let viajes of listaDeViajes){
         comboManifiesto.innerHTML+= "<option value='"+viajes.id+"'>"+"Nro de viaje: "+viajes.id+", fecha de llegada: "+viajes.fechaLlegada+"</option>";
     }  
+    // Evento que se ejecuta cuando el usuario selecciona un viaje
+    comboManifiesto.onchange = function(){
+        let viajeId = document.querySelector("#slcViaje").value;
+        let viaje = listaDeViajes.find(viaje => viaje.id == viajeId);
+        for(let solicitudes of listaDeSolicitudes){
+            if (solicitudes.idViaje == viaje.id) {
+                cargarTablaManisiesto()
+            }
+        }
+    }
 }
 //TABLA DINAMICA de MANIFIESTO segun SLC // 
 function cargarTablaManisiesto(){
@@ -34,6 +44,7 @@ function cargarTablaManisiesto(){
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
+  
 }
 
 //----------------------------------------------------------------------------------------------------//
