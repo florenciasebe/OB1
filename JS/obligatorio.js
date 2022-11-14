@@ -71,18 +71,17 @@ function cargarComboAsigancionViajes(){
 //VALIDAR DATOS PARA ASIGNAR VIAJE //
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
-    //asignacion de variables
-    let viaje = document.querySelector("#slcViajes");
-    //Validaciones
-    // al asginar un viaje la solicitud cambia a estado CONFRIMADA y se agrega el id del viaje
-    let solicitudEstado = document.querySelector("#slcSolicitudesPendientes").value;
-    let newestado = listaDeSolicitudes.find(solicitudes => solicitudes.estado == solicitudEstado);
-    newestado = "CONFIRMADO"
-    //guarda en el array
-    listaDeSolicitudes.push(newestado); 
-    alert ("Viaje asigando con exito.")
     
-    // restar los lugares dispoibles - contenedores de la solicitud
+    let solicitudId = document.querySelector("#slcSolicitudesPendientes").value;
+    let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
+    let viajeId = document.querySelector("#slcViajes").value;
+    let viaje = listaDeViajes.find(viajes => viajes.id == viajeId);
+    //modificar solicestado a confirmado 
+    solicitud.estado = "CONFIRMADO";
+    //modificar solic id   
+    solicitud.idViaje = viaje.id;
+    // modificar restar los lugares dispoibles - contenedores de la solicitud
+    
 }
 
 //----------------------------------------------------------------------------------------------------//
