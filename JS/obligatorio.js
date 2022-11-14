@@ -14,7 +14,7 @@ let listaDeViajes = new Array ();
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- MANIFIESTO DE CARGA --------------------------------//
 
-// CARGAR SLC PARA MANIFIESTO // 
+// CARGAR SLC Y TABLA PARA MANIFIESTO // 
 function cargarSlcManifiesto() {
     let comboManifiesto = document.querySelector("#slcViajeManifiesto");
     comboManifiesto.innerHTML = "";
