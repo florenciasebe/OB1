@@ -538,10 +538,10 @@ function cargaPeligrosa (){
 //-------------------------------- PRE CARGA DE DATOS SEGUN LETRA --------------------------------//
 
 //Precarga de datos de viajes
-let Viaje1= new Viajes (1, "Buque1", 10, "rapido", "02/02/2023");
+let Viaje1= new Viajes (1, "Buque1", 10, "rapido", "02/02/2023", 0);
 let Viaje2= new Viajes (2, "Buque2", 7, "facil", "15/01/2023");
 let Viaje3= new Viajes (3, "Buque3", 8, "pediloya", "05/03/2023");
-let Viaje4= new Viajes (4, "Buque4", 3, "eficaz", "19/01/2023");
+let Viaje4= new Viajes (4, "Buque4", 3, "eficaz", "19/01/2023", 1);
 listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
