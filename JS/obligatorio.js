@@ -38,13 +38,25 @@ function cargarTablaSP(){
     tablaspHTML += "</table>";
     document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
 }
+// CARGAR SLC DINAMICO DE SOLICITUDES PENDIENTES // 
+function cargarComboCancelarSP(){
+    let comboCancelarSolicitud = document.querySelector("#slcCancelarSolicitud");
+    comboCancelarSolicitud.innerHTML = "";
+    comboCancelarSolicitud.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
+    for(let solicitudes of listaDeSolicitudes){
+        if (solicitudes.estado == "PENDIENTE"){
+            comboCancelarSolicitud.innerHTML+= "<option value='"+solicitudes.id+"'>"+"Nro. de solicitud: "+solicitudes.id+" -> "+
+            solicitudes.descripcion+"</option>";
+        }
+    }
+}
 // CANCELAR SOLICITUD //
 document.querySelector("#btnCancelar").addEventListener("click", cancelarSolicitud);
 function cancelarSolicitud(){
     if (confirm('Aprete "Aceptar" para cancelar su solicitud de pedido')) {
-        txt = "ok, cancelar solicitud de pedido";
+        txt = "ok";
       } else {
-        txt = "cancelar opcion";
+        txt = "cancelar";
       }
       document.getElementById("demo").innerHTML = txt;    
 }
@@ -443,6 +455,7 @@ function solicitudesPendientes (){
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divSolicitudesPendientes").style.display="block"
     cargarTablaSP()
+    cargarComboCancelarSP()
 }
 
 // PANTALLAS EMPRESAS // 
