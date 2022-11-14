@@ -55,6 +55,11 @@ document.querySelector("#btnCancelar").addEventListener("click", cancelarSolicit
 function cancelarSolicitud(){
     if (confirm('Aprete "Aceptar" para cancelar su solicitud de pedido')) {
         txt = "ok";
+        let solicitudId = document.querySelector("#slcCancelarSolicitud").value;
+        let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
+         //modificar solicestado a confirmado 
+        solicitud.estado = "CANCELADO";
+        alert ("Solicitud cancelada con exito")
       } else {
         txt = "cancelar";
       }
