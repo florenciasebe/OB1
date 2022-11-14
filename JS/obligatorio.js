@@ -15,30 +15,40 @@ let listaDeViajes = new Array ();
 //-------------------------------- MANIFIESTO DE CARGA --------------------------------//
 
 // CARGAR SLC PARA MANIFIESTO // 
-function cargarSlcManifiesto(){
+function cargarSlcManifiesto() {
     let comboManifiesto = document.querySelector("#slcViajeManifiesto");
     comboManifiesto.innerHTML = "";
-    comboManifiesto.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
-    for(let viajes of listaDeViajes){
-        comboManifiesto.innerHTML+= "<option value='"+viajes.id+"'>"+"Nro de viaje: "+viajes.id+", fecha de llegada: "+viajes.fechaLlegada+"</option>";
-    }  
+    comboManifiesto.innerHTML += "<option value='--'>" + "Seleccionar opcion" + "</option>"
+    for (let viajes of listaDeViajes) {
+        comboManifiesto.innerHTML += "<option value='" + viajes.id + "'>" + "Nro de viaje: " + viajes.id + ", fecha de llegada: " + viajes.fechaLlegada + "</option>";
+    }
     // Evento que se ejecuta cuando el usuario selecciona un viaje
-    comboManifiesto.onchange = function(){
+    comboManifiesto.onchange = function () {
         let viajeId = document.querySelector("#slcViajeManifiesto").value;
-        for(let solicitudes of listaDeSolicitudes){
-            if (solicitudes.idViaje == viajeId){
-                let tablaspHTML = "<table border=1>";
-                tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>";
-                tablaspHTML += "<tr><td>"+solicitudes.id+"</td><td>"+solicitudes.tipoDeMercaderia+
-                "</td><td>"+solicitudes.descripcion+"</td><td>"+solicitudes.puertoOrigen+
-                "</td><td>"+solicitudes.cantidadContenedores+"</td></tr>";
-                tablaspHTML += "</table>";
-                document.querySelector("#tblManifiesto").innerHTML= tablaspHTML;
-            } else {
-                document.querySelector("#tblManifiesto").innerHTML= "El viaje seleccionado no tiene nignuna solicitud asociada aún.";
-            }  
+        let tablaspHTML = ""
+        let siNoExisten = true;
+        let armarHeader = true;
+        for (let solicitudes of listaDeSolicitudes) {
+            if (solicitudes.idViaje == viajeId) {
+                siNoExisten = false;
+                if (armarHeader) {
+                    tablaspHTML = "<table border=1>";
+                    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>";
+                    armarHeader = false;
+                }
+                tablaspHTML += "<tr><td>" + solicitudes.id + "</td><td>" + solicitudes.tipoDeMercaderia +
+                    "</td><td>" + solicitudes.descripcion + "</td><td>" + solicitudes.puertoOrigen +
+                    "</td><td>" + solicitudes.cantidadContenedores + "</td></tr>";
+            }
         }
-        
+        if (siNoExisten) {
+            document.querySelector("#tblManifiesto").innerHTML = "El viaje seleccionado no tiene nignuna solicitud asociada aún.";
+        }
+        else {
+            tablaspHTML += "</table>";
+            document.querySelector("#tblManifiesto").innerHTML = tablaspHTML;
+        }
+
     }
 }
 
@@ -531,15 +541,15 @@ function cargaPeligrosa (){
 let Viaje1= new Viajes (1, "Buque1", 10, "rapido", "02/02/2023");
 let Viaje2= new Viajes (2, "Buque2", 7, "facil", "15/01/2023");
 let Viaje3= new Viajes (3, "Buque3", 8, "pediloya", "05/03/2023");
-let Viaje4= new Viajes (4, "Buque4", 2, "eficaz", "19/01/2023");
+let Viaje4= new Viajes (4, "Buque4", 3, "eficaz", "19/01/2023");
 listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
 let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", 3,"PENDIENTE");
-let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", 4,"CONFIRMADO");
+let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", 4,"CONFIRMADO", 1);
 let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", 1,"PENDIENTE");
-let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", 2,"CONFIRMADO");
-let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", 6,"CONFIRMADO");
+let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", 2,"CONFIRMADO", 4);
+let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", 6,"CONFIRMADO", 1);
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
