@@ -292,7 +292,7 @@ function registrarImpo(){
     let claveImpo = getClaveImportador();
     // Validaciones 
     if (nombreImpo == "" || usuarioImpo == ""|| !fotoImpo || claveImpo == "" ) {
-        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+        alert ("Todos los campos son obligatorios. Por favor vuelve a intentarlo.")
     }
     else if(!validarClave(claveImpo)){
         alert ("la clave debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero")
