@@ -26,7 +26,7 @@ function cargarTablaRollover(){
         }
     }
     tablaspHTML += "</table>";
-    document.querySelector("#tblSolicitudesPendientes").innerHTML= tablaspHTML;
+    document.querySelector("#tblRollover").innerHTML= tablaspHTML;
 }
 // CARGAR SLC DINAMICO DE VIAJES A LOS QUE PUEDO HACER ROLLOVER // 
 function cargarComboCancelarRollover(){
@@ -52,7 +52,6 @@ function confirmarRollover(){
         alert ("Solicitud cancelada con exito")
     }   
 }
-
 
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- MANIFIESTO DE CARGA --------------------------------//
