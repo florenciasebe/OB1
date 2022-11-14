@@ -71,7 +71,6 @@ function cargarComboAsigancionViajes(){
 //VALIDAR DATOS PARA ASIGNAR VIAJE //
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
-    
     let solicitudId = document.querySelector("#slcSolicitudesPendientes").value;
     let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
     let viajeId = document.querySelector("#slcViajes").value;
