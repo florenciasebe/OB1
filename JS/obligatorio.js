@@ -88,9 +88,26 @@ function cargarComboSolicitudRollover(){
             solicitudes.id+"</option>";
         }
     }
+    comboSolicitudRollover.onchange = function () { 
+        let solicitudId = document.querySelector("#slcSolicitudRollover").value;
+        let comboViajesDisponibles = document.querySelector("#slcViajesDisp");
+        let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
+        comboViajesDisponibles.innerHTML = "";
+        comboViajesDisponibles.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
+        for(let viajes of listaDeViajes){
+            if (viajes.cantidadDisponible >= solicitud.cantidadContenedores) {
+                comboViajesDisponibles.innerHTML+= "<option value='"+viajes.id+"'>"
+                        +viajes.nombreBuque+", "+
+                        viajes.cantidadDisponible+" lugares disponibles, "+
+                        "fecha de llegada: "+viajes.fechaLlegada+"</option>";
+            }
+        }
+
+        document.querySelector("#divRolloverAsignarNewViaje").style.display = "block";
+    }
 }
 // CONFIRMAR ROLLOVER //
-document.querySelector("#btnCancelar").addEventListener("click", cancelarSolicitud);
+document.querySelector("#btnAsignarRollover").addEventListener("click", confirmarRollover);
 function confirmarRollover(){
     if (confirm('Aprete "Aceptar" para cancelar su solicitud de pedido')) {
         let solicitudId = document.querySelector("#slcCancelarSolicitud").value;
