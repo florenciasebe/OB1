@@ -121,6 +121,10 @@ function confirmarRollover(){
         // modificar restar los lugares dispoibles - contenedores de la solicitud
         viaje.cantidadDisponible = viaje.cantidadDisponible - solicitud.cantidadContenedores;
         alert ("Rollover completo con éxito. ")
+        cargarTablaRollover()
+        cargarComboSolicitudRollover()
+        document.querySelector("#divRolloverAsignarNewViaje").style.display="none"
+
     }   
 }
 
