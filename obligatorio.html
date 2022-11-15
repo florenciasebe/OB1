@@ -17,8 +17,9 @@
             <label for="usuarioImportador">Usuario:</label>
             <input type="text" id="usuarioImportador"><br>
             <label for="txtFoto">Foto:</label>
-            <input type="file" id="txtFoto"><br>
+            <input type="file" id="txtFoto"><br> 
             <label for="txtClaveImpo">Contraseña</label>
+            <p>debe contener minimo 5 caracteres, 1 mayuscula, 1 minuscula y 1 numero</p>
             <input type="password" id="txtClaveImpo"><br><br>
             <input type="button" id="btnRegistrar" value="Confirmar registro"/>
         </form>    
@@ -120,10 +121,7 @@
             }
         </style>
         <h2>Calendario de llegadas</h2>
-        <p>En el siguiente calendario se mostraran las fechas de llegada de tus solicitudes confirmadas. 
-            Podrá filtrar por la descripcion de la mercadería en el siguiente buscador.</p>
-        <input type="text" id="txtApellido" value="Buscador" style="color:rgb(124, 124, 124);">
-        <br><br>
+        <p>En el siguiente calendario se mostraran las fechas de llegada de tus solicitudes confirmadas.</p>
         <table style="width:100%">
             <thead>
             <tr>
@@ -154,7 +152,10 @@
         <br>
         <h4>Porcentaje de participación</h4>
         <p>Porcentaje de participación historica de las diferentes líneas de carga en sus solicitudes contando solo los
-        envíos (no los contenedores) y se omiten las empresas con porcentaje cero.</p>                      
+        envíos (no los contenedores) y se omiten las empresas con porcentaje cero.</p>   
+        <input type="button" id="btnPorcentajeEstadistica" value="Calcular porcentaje">
+        <br><br>
+        <p id="msgResultado">El porcentaje es : </p>
     </div>
 
 <!--Crear el viaje de un buque-->
