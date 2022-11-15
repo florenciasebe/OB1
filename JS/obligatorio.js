@@ -14,7 +14,7 @@ let listaDeViajes = new Array ();
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ROLLOVER --------------------------------//
 
-//TABLA DINAMICA PARA EL ROLLOVER // 
+//TABLA DINAMICA PARA EL ROLLOVER (SOLO SOLICITUDES CONFIRMADAS Y CON FECHAS POSTERIORES A HOY)// 
 function cargarTablaRollover(){
     let tablaspHTML = "<table border=1>";
     tablaspHTML += "<tr><th>Viaje asignado</th><th>Nro. de solicitud</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>"
@@ -195,8 +195,6 @@ function cargarComboEmpresasDisponibles(){
 document.querySelector("#btnNewViaje").addEventListener("click", validarCrearViaje);
 function validarCrearViaje(){
     let campoFecha = document.querySelector("#txtFechaLlegada");
-    
-    //asignacion de variables
     let nombreBuque = getNombreDelBuque();
     let maxCont = getMaximoDeContenedores();
     let nombreEmpresa = getNombreDeEmpresa();
@@ -552,6 +550,7 @@ function asignarSolicitud (){
 }
 function rollover (){
     ocultarTodo()
+    document.querySelector("#divRolloverAsignarNewViaje").style.display="none"
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divRollover").style.display="block"
