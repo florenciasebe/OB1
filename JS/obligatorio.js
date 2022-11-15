@@ -11,6 +11,55 @@ let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
 
+// ESTADISTICAS (EN PROCESO)
+function participacionDiferentesLineasCarga(){
+
+    let totalEmpresa1=0
+    for (let unaSol of listaDeSolicitudes){
+       if(unaSol.id==usuarioConectado.id){
+            if (unaSol.idEmp ==1){
+               totalEmpresa1++
+       }
+    }
+ 
+    let totalEmpresa2=0
+    for (let unaSol of listaDeSolicitudes){
+       if(unaSol.id==usuarioConectado.id){
+            if (unaSol.idEmp ==2){
+               totalEmpresa2++
+       }
+    }
+
+    let totalEmpresa3=0
+    for (let unaSol of listaDeSolicitudes){
+       if(unaSol.id==usuarioConectado.id){
+            if (unaSol.idEmp ==3){
+               totalEmpresa3++
+       }
+    }
+    }
+    let totalEmpresa4=0
+    for (let unaSol of listaDeSolicitudes){
+       if(unaSol.id==usuarioConectado.id){
+            if (unaSol.idEmp ==4){
+               totalEmpresa4++
+       }
+    }
+    }
+    let totalGeneral= totalEmpresa1+totalEmpresa2+totalEmpresa3+totalEmpresa4
+    let porcentaje1= totalEmpresa1*100/totalGeneral
+    let porcentaje2= totalEmpresa2*100/totalGeneral
+    let porcentaje3= totalEmpresa3*100/totalGeneral
+    let porcentaje4= totalEmpresa4*100/totalGeneral
+
+    if (porcentaje1>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[0].nombre} es ${$porcentaje1}`
+    if (porcentaje2>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[1].nombre} es ${$porcentaje2}`
+    if (porcentaje3>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[2].nombre} es ${$porcentaje3}`
+    if (porcentaje4>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[3].nombre} es ${$porcentaje4}`
+    }
+}
+}
+
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ROLLOVER --------------------------------//
 
@@ -164,56 +213,6 @@ function cargarComboAsigancionViajes(){
     }
 }
 
-// ESTADISTICAS (EN PROCESO)
-
-
-function participacionDiferentesLineasCarga(){
-
-    let totalEmpresa1=0
-    for (let unaSol of listaDeSolicitudes){
-       if(unaSol.id==usuarioConectado.id){
-            if (unaSol.idEmp ==1){
-               totalEmpresa1++
-       }
-    }
- 
-    let totalEmpresa2=0
-    for (let unaSol of listaDeSolicitudes){
-       if(unaSol.id==usuarioConectado.id){
-            if (unaSol.idEmp ==2){
-               totalEmpresa2++
-       }
-    }
-
-    let totalEmpresa3=0
-    for (let unaSol of listaDeSolicitudes){
-       if(unaSol.id==usuarioConectado.id){
-            if (unaSol.idEmp ==3){
-               totalEmpresa3++
-       }
-    }
-    }
-    let totalEmpresa4=0
-    for (let unaSol of listaDeSolicitudes){
-       if(unaSol.id==usuarioConectado.id){
-            if (unaSol.idEmp ==4){
-               totalEmpresa4++
-       }
-    }
-    }
-    let totalGeneral= totalEmpresa1+totalEmpresa2+totalEmpresa3+totalEmpresa4
-    let porcentaje1= totalEmpresa1*100/totalGeneral
-    let porcentaje2= totalEmpresa2*100/totalGeneral
-    let porcentaje3= totalEmpresa3*100/totalGeneral
-    let porcentaje4= totalEmpresa4*100/totalGeneral
-
-    if (porcentaje1>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[0].nombre} es ${$porcentaje1}`
-    if (porcentaje2>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[1].nombre} es ${$porcentaje2}`
-    if (porcentaje3>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[2].nombre} es ${$porcentaje3}`
-    if (porcentaje4>0) document.querySelector("#msgResultado").innerHTML+=`El porcentaje de la empresa ${listaDeEmpresas[3].nombre} es ${$porcentaje4}`
-    }
-}
-}
 //VALIDAR DATOS PARA ASIGNAR VIAJE //
 document.querySelector("#btnasignar").addEventListener("click", asignarViaje);
 function asignarViaje(){
