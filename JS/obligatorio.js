@@ -14,7 +14,7 @@ let listaDeViajes = new Array ();
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ROLLOVER --------------------------------//
 
-//TABLA DINAMICA PARA EL ROLLOVER (SOLO SOLICITUDES CONFIRMADAS Y CON FECHAS POSTERIORES A HOY)// 
+//TABLA DINAMICA PARA EL ROLLOVER (SOLO SOLICITUDES CONFIRMADAS)// 
 function cargarTablaRollover(){
     let tablaspHTML = "<table border=1>";
     tablaspHTML += "<tr><th>Viaje asignado</th><th>Nro. de solicitud</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>"
