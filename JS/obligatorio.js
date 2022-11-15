@@ -29,14 +29,14 @@ function cargarTablaRollover(){
     document.querySelector("#tblRollover").innerHTML= tablaspHTML;
 }
 // CARGAR SLC DINAMICO DE VIAJES A LOS QUE PUEDO HACER ROLLOVER // 
-function cargarComboCancelarRollover(){
-    let comboCancelarSolicitud = document.querySelector("#slcCancelarSolicitud");
-    comboCancelarSolicitud.innerHTML = "";
-    comboCancelarSolicitud.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
+function cargarComboSolicitudRollover(){
+    let comboSolicitudRollover = document.querySelector("#slcSolicitudRollover");
+    comboSolicitudRollover.innerHTML = "";
+    comboSolicitudRollover.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
     for(let solicitudes of listaDeSolicitudes){
-        if (solicitudes.estado == "PENDIENTE"){
-            comboCancelarSolicitud.innerHTML+= "<option value='"+solicitudes.id+"'>"+"Nro. de solicitud: "+solicitudes.id+" -> "+
-            solicitudes.descripcion+"</option>";
+        if (solicitudes.estado == "CONFIRMADO"){
+            comboSolicitudRollover.innerHTML+= "<option value='"+solicitudes.id+"'>"+"Nro. viaje: "+solicitudes.idViaje+", Nro. Solicitud: "+
+            solicitudes.id+"</option>";
         }
     }
 }
@@ -555,6 +555,7 @@ function rollover (){
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divRollover").style.display="block"
     cargarTablaRollover()
+    cargarComboSolicitudRollover()
 }
 function manifiesto(){
     ocultarTodo()
