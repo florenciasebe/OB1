@@ -164,7 +164,7 @@ function cargarComboAsigancionViajes(){
     }
 }
 
-// ESTADISTICAS
+// ESTADISTICAS (EN PROCESO)
 
 
 function participacionDiferentesLineasCarga(){
