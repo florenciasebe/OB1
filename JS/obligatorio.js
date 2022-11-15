@@ -109,13 +109,18 @@ function cargarComboSolicitudRollover(){
 // CONFIRMAR ROLLOVER //
 document.querySelector("#btnAsignarRollover").addEventListener("click", confirmarRollover);
 function confirmarRollover(){
-    if (confirm('Aprete "Aceptar" para cancelar su solicitud de pedido')) {
-        let solicitudId = document.querySelector("#slcCancelarSolicitud").value;
+    if (confirm('Aprete "Aceptar" para confirmar rollover de las opciones seleccionadas')) {
+        let solicitudId = document.querySelector("#slcSolicitudRollover").value;
         let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
-         //modificar solicestado a confirmado 
-        solicitud.estado = "CANCELADO";
-        cargarTablaSP()
-        alert ("Solicitud cancelada con exito")
+        let viajeId = document.querySelector("#slcViajesDisp").value;
+        let viaje = listaDeViajes.find(viajes => viajes.id == viajeId);
+        //modificar solicestado a confirmado 
+        solicitud.estado = "CONFIRMADO";
+        //modificar solic id   
+        solicitud.idViaje = viaje.id;
+        // modificar restar los lugares dispoibles - contenedores de la solicitud
+        viaje.cantidadDisponible = viaje.cantidadDisponible - solicitud.cantidadContenedores;
+        alert ("Rollover completo con éxito. ")
     }   
 }
 
