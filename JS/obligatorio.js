@@ -47,6 +47,19 @@ function participacionDiferentesLineasCarga() {
 }
 
 //----------------------------------------------------------------------------------------------------//
+//-------------------------------- IMPORTADORES DESHABILITADOS --------------------------------//
+
+function cargarTablaImpoDesh(){
+    let tablaspHTML = "<table border=1>";
+    tablaspHTML += "<tr><th>Nombre</th><th>Nro. de importador</th></tr>"
+    for(let importador of listaDeImportador){
+        tablaspHTML += "<tr><td>"+importador.nombre+"</td><td>"+importador.id+"</td></tr>";
+    }
+    tablaspHTML += "</table>";
+    document.querySelector("#tblHabilitarImpo").innerHTML= tablaspHTML;
+}
+
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- ROLLOVER --------------------------------//
 
 //TABLA DINAMICA PARA EL ROLLOVER (SOLO SOLICITUDES CONFIRMADAS)// 
@@ -395,6 +408,7 @@ function getClaveInicio (){
 //-------------------------------- REGISTRO DE IMPORTADOR --------------------------------//
 
 // FORMULARIO DE REGISTRO - VALIDACIONES - CONFIRMAR REGISTRO //
+
 document.querySelector("#btnRegistrar").addEventListener("click", registrarImpo);
 function registrarImpo(){
     //asignacion de variables
@@ -421,7 +435,6 @@ function registrarImpo(){
         irHome();
     }
 }
-
 // LEVANTAR DATOS DEL FORMULARIO DE REGISTRO //
 function getNombreImportador() {
     return document.querySelector("#nombreImportador").value
@@ -634,6 +647,7 @@ function habilitarImportadores (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divHabilitarImpo").style.display="block"
+    cargarTablaImpoDesh()
 }
 function cargaPeligrosa (){
     ocultarTodo()
