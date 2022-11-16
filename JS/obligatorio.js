@@ -47,6 +47,45 @@ function participacionDiferentesLineasCarga() {
 }
 
 //----------------------------------------------------------------------------------------------------//
+//-------------------------------- CARGAS PELIGROSAS --------------------------------//
+// CARGAR SLC Y TABLA PARA CARGAS PELIGROSAS // 
+function cargarSlcCargasPeligrosas() {
+    let comboCargas = document.querySelector("#slcViajePeligroso");
+    comboCargas.innerHTML = "";
+    comboCargas.innerHTML += "<option value='--'>" + "Seleccionar opcion" + "</option>"
+    for (let viajes of listaDeViajes) {
+        comboCargas.innerHTML += "<option value='" + viajes.id + "'>" + "Nro de viaje: " + viajes.id + ", fecha de llegada: " + viajes.fechaLlegada + "</option>";
+    }
+    // Evento que se ejecuta cuando el usuario selecciona un viaje
+    comboCargas.onchange = function () {
+        let viajeId = document.querySelector("#slcViajePeligroso").value;
+        let tablaspHTML = ""
+        let siNoExisten = true;
+        let armarHeader = true;
+        for (let solicitudes of listaDeSolicitudes) {
+            if (solicitudes.idViaje == viajeId && solicitudes.tipoDeMercaderia == "CARGA_PELIGROSA") {
+                siNoExisten = false;
+                if (armarHeader) {
+                    tablaspHTML = "<table border=1>";
+                    tablaspHTML += "<tr><th>Nro. de solicitud</th> <th>Tipo de carga</th><th>Descripción de mercadería</th><th>Puerto de origen</th><th>Cantidad de contenedores</th></tr>";
+                    armarHeader = false;
+                }
+                tablaspHTML += "<tr><td>" + solicitudes.id + "</td><td>" + solicitudes.tipoDeMercaderia +
+                    "</td><td>" + solicitudes.descripcion + "</td><td>" + solicitudes.puertoOrigen +
+                    "</td><td>" + solicitudes.cantidadContenedores + "</td></tr>";
+            }
+        }
+        if (siNoExisten) {
+            document.querySelector("#tblCargasPeligrosas").innerHTML = "El viaje seleccionado no tiene nignuna solicitud asociada aún.";
+        }
+        else {
+            tablaspHTML += "</table>";
+            document.querySelector("#tblCargasPeligrosas").innerHTML = tablaspHTML;
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------//
 //-------------------------------- IMPORTADORES DESHABILITADOS --------------------------------//
 
 function cargarTablaImpoDesh(){
