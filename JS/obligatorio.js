@@ -59,7 +59,6 @@ function cargarTablaImpoDesh(){
     tablaspHTML += "</table>";
     document.querySelector("#tblHabilitarImpo").innerHTML= tablaspHTML;
 }
-
 function cargarComboImpoDesh(){
     let comboImpoDesh = document.querySelector("#slcDeshabilitados");
     comboImpoDesh.innerHTML = "";
@@ -70,7 +69,6 @@ function cargarComboImpoDesh(){
         }
     }
 }
-
 // CONFIRMAR HABILITACION //
 document.querySelector("#btnHabilitar").addEventListener("click", habilitarImportador);
 function habilitarImportador(){
