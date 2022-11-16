@@ -9,5 +9,13 @@ export class Importador{
         this.clave = unaClave;
         this.foto = unaFoto;
         this.estado = "habilitado";
+        this.cancelados = 0;
+    }
+
+    cancelar()  {
+        this.cancelados++;
+        if (this.cancelados >= 3) {
+            this.estado = "deshabilitado";
+        }
     }
 }

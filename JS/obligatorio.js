@@ -53,10 +53,35 @@ function cargarTablaImpoDesh(){
     let tablaspHTML = "<table border=1>";
     tablaspHTML += "<tr><th>Nombre</th><th>Nro. de importador</th></tr>"
     for(let importador of listaDeImportador){
+        if (importador.estado == "deshabilitado")
         tablaspHTML += "<tr><td>"+importador.nombre+"</td><td>"+importador.id+"</td></tr>";
     }
     tablaspHTML += "</table>";
     document.querySelector("#tblHabilitarImpo").innerHTML= tablaspHTML;
+}
+
+function cargarComboImpoDesh(){
+    let comboImpoDesh = document.querySelector("#slcDeshabilitados");
+    comboImpoDesh.innerHTML = "";
+    comboImpoDesh.innerHTML+= "<option value='--'>"+"Seleccionar opcion"+"</option>"
+    for(let importador of listaDeImportador){
+        if (importador.estado == "deshabilitado"){
+            comboImpoDesh.innerHTML+= "<option value='"+importador.id+"'>"+importador.nombre+"</option>";
+        }
+    }
+}
+
+// CONFIRMAR HABILITACION //
+document.querySelector("#btnHabilitar").addEventListener("click", habilitarImportador);
+function habilitarImportador(){
+    if (confirm('Aprete "Aceptar" para habilitar el importador seleccionado')) {
+        let importadorId = document.querySelector("#slcDeshabilitados").value;
+        let importador = listaDeImportador.find(importador => importador.id == importadorId);
+        importador.estado = "habilitado";
+        alert ("Importador habilitado con éxito.")
+        cargarTablaImpoDesh()
+        cargarComboImpoDesh()
+    }   
 }
 
 //----------------------------------------------------------------------------------------------------//
@@ -200,9 +225,13 @@ function cancelarSolicitud(){
     if (confirm('Aprete "Aceptar" para cancelar su solicitud de pedido')) {
         let solicitudId = document.querySelector("#slcCancelarSolicitud").value;
         let solicitud = listaDeSolicitudes.find(solicitudes => solicitudes.id == solicitudId);
+        // Buscas el importador conectado en la sesion
+        let importador = listaDeImportador.find(i => i.id == usuarioConectado.id);
+        importador.cancelar();
          //modificar solicestado a confirmado 
         solicitud.estado = "CANCELADO";
         cargarTablaSP()
+        cargarComboCancelarSP()
         alert ("Solicitud cancelada con exito")
     }   
 }
@@ -380,6 +409,7 @@ function validarClaveUsuario(tipo, usuario, clave) {
         for(let empresa of listaDeEmpresas){
             if (empresa.usuario == usuario && empresa.clave == clave ){
                 usuarioClaveValido = true;
+                usuarioConectado = empresa;
             }
         } 
     }
@@ -388,6 +418,7 @@ function validarClaveUsuario(tipo, usuario, clave) {
         for(let importador of listaDeImportador) { 
             if (importador.usuario == usuario && importador.clave == clave) {
                 usuarioClaveValido = true;
+                usuarioConectado = importador;
             }
         } 
     }
@@ -595,8 +626,9 @@ function nuevaSolicitud (){
     ocultarTodo()
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuImportador").style.display="block"
-    document.querySelector("#divNewSolicitud").style.display="block"
+    document.querySelector("#divNewSolicitud").style.display="block"   
 }
+
 function solicitudesPendientes (){
     ocultarTodo()
     document.querySelector("#divSalir").style.display="block"
@@ -648,6 +680,7 @@ function habilitarImportadores (){
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divHabilitarImpo").style.display="block"
     cargarTablaImpoDesh()
+    cargarComboImpoDesh()
 }
 function cargaPeligrosa (){
     ocultarTodo()
