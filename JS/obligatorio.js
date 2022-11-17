@@ -16,16 +16,20 @@ let listaDeViajes = new Array ();
 //----------------------------------------------------------------------------------------------------//
 //-------------------------------- ESTADISTICAS --------------------------------//
 
-function cargarTablaEstadistica(){
+function cargarTablaEstadistica() {
     let tablaspHTML = "<table border=1>";
     tablaspHTML += "<tr><th>Fecha de llegada</th><th>Nro. de importador</th><th>Nombre de importador</th><th>Tipo de mercaderia</th><th>Descripcion</th><th>Contenedores</th><th>Nro. de empresa</th></tr>"
-    for(let solicitudes of listaDeSolicitudes){
-        if (solicitudes.idViaje != null)
-        let viaje = listaDeViajes.find(viajes => viajes.id == );
-        tablaspHTML += "<tr><td>"+solicitudes.nombre+"</td><td>"+importador.id+"</td></tr>";
+    for (let solicitudes of listaDeSolicitudes) {
+        if (solicitudes.idViaje != null) {
+            let viaje = listaDeViajes.find(viajes => viajes.id == solicitudes.idViaje);
+            tablaspHTML += "<tr><td>" + viaje.fechaLlegada + "</td><td>" + 
+            solicitudes.id + "</td><td>" + solicitudes.nombre + "</td><td>" + solicitudes.tipoDeMercaderia + "</td><td>" + 
+            solicitudes.descripcion + "</td><td>" + solicitudes.cantidadContenedores + "</td><td>" + 
+            solicitudes.idViaje + "</td></tr>";
+        }
     }
     tablaspHTML += "</table>";
-    document.querySelector("#tblHabilitarImpo").innerHTML= tablaspHTML;
+    document.querySelector("#tblCalendarioLlegadas").innerHTML = tablaspHTML;
 }
 
 function porcentajeDeCancelaciones() {
