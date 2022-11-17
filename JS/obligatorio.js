@@ -48,37 +48,41 @@ function porcentajeDeCancelaciones() {
 
 // ESTADISTICAS (EN PROCESO)
 function participacionDiferentesLineasCarga() {
-    document.querySelector("#msgResultado").innerHTML =""
-    let totalEmpresa1 = 0
-    let totalEmpresa2 = 0
-    let totalEmpresa3 = 0
-    let totalEmpresa4 = 0
-    for (let solicitudes of listaDeSolicitudes) {
-        if (solicitudes.id == usuarioConectado.id) {
-            if (solicitudes.idViaje== 1) {
-                totalEmpresa1++
-            }
-            if (solicitudes.idViaje == 2) {
-                totalEmpresa2++
-            }
-            if (solicitudes.idViaje == 3) {
-                totalEmpresa3++
-            }
-            if (solicitudes.idViaje == 4) {
-                totalEmpresa4++
-            }
+    document.querySelector("#msgResultadoParticipacion").innerHTML = "";
+    let totalEmpresa1 = 0;
+    let totalEmpresa2 = 0;
+    let totalEmpresa3 = 0;
+    let totalEmpresa4 = 0;
+    
+    for (let viaje of listaDeViajes) {
+        let empresa = listaDeEmpresas.find(e => e.nombre == viaje.nombreEmpresa);
+        if (!empresa) {
+            continue; // Si la empresa es nula (no existe empresa cargada con ese nombre) retornar xq no es le puede sumar a ninguna !
+        }
+        if (empresa.id == 1) {
+            totalEmpresa1++;
+        }
+        if (empresa.id == 2) {
+            totalEmpresa2++;
+        }
+        if (empresa.id == 3) {
+            totalEmpresa3++;
+        }
+        if (empresa.id == 4) {
+            totalEmpresa4++;
         }
     }
-    let totalGeneral = totalEmpresa1 + totalEmpresa2 + totalEmpresa3 + totalEmpresa4
-    let porcentaje1 = totalEmpresa1 * 100 / totalGeneral
-    let porcentaje2 = totalEmpresa2 * 100 / totalGeneral
-    let porcentaje3 = totalEmpresa3 * 100 / totalGeneral
-    let porcentaje4 = totalEmpresa4 * 100 / totalGeneral
 
-    if (porcentaje1 > 0) document.querySelector("#msgResultado").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[0].nombre} es ${porcentaje1}<br> `
-    if (porcentaje2 > 0) document.querySelector("#msgResultado").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[1].nombre} es ${porcentaje2}<br>`
-    if (porcentaje3 > 0) document.querySelector("#msgResultado").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[2].nombre} es ${porcentaje3}<br>`
-    if (porcentaje4 > 0) document.querySelector("#msgResultado").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[3].nombre} es ${porcentaje4}`
+    let totalGeneral = totalEmpresa1 + totalEmpresa2 + totalEmpresa3 + totalEmpresa4;
+    let porcentaje1 = totalEmpresa1 * 100 / totalGeneral;
+    let porcentaje2 = totalEmpresa2 * 100 / totalGeneral;
+    let porcentaje3 = totalEmpresa3 * 100 / totalGeneral;
+    let porcentaje4 = totalEmpresa4 * 100 / totalGeneral;
+
+    if (porcentaje1 > 0) document.querySelector("#msgResultadoParticipacion").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[0].nombre} es ${Math.round(porcentaje1)}<br> `;
+    if (porcentaje2 > 0) document.querySelector("#msgResultadoParticipacion").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[1].nombre} es ${Math.round(porcentaje2)}<br>`;
+    if (porcentaje3 > 0) document.querySelector("#msgResultadoParticipacion").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[2].nombre} es ${Math.round(porcentaje3)}<br>`;
+    if (porcentaje4 > 0) document.querySelector("#msgResultadoParticipacion").innerHTML += `El porcentaje de la empresa ${listaDeEmpresas[3].nombre} es ${Math.round(porcentaje4)}`;
 }
 
 //----------------------------------------------------------------------------------------------------//
@@ -667,7 +671,9 @@ document.querySelector("#btnSolicitudespendientes").addEventListener("click", so
 document.querySelector("#btnregistrarImportador").addEventListener("click", irRegistrar);
 document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion );
 document.querySelector("#btnLogout").addEventListener("click", irHome);
-document.querySelector("#btnPorcentajeEstadistica").addEventListener("click", porcentajeDeCancelaciones)
+document.querySelector("#btnPorcentajeEstadistica").addEventListener("click", porcentajeDeCancelaciones);
+document.querySelector("#btnPorcentajeEstadisticaParticipacion").addEventListener("click", participacionDiferentesLineasCarga)
+
 
 function irHome(){
     ocultarTodo()
