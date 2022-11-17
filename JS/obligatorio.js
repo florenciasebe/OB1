@@ -751,6 +751,7 @@ function cargaPeligrosa (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuEmpresa").style.display="block"
     document.querySelector("#divCargasPeligrosas").style.display="block"
+    cargarSlcCargasPeligrosas()
 }
 
 //----------------------------------------------------------------------------------------------------//
