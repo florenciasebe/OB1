@@ -790,7 +790,7 @@ let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpie
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
-let Impo1= new Importador (1, "administrador", "admin", "1", "img/foto.jpg");
+let Impo1= new Importador (1, "crosa", "rosa", "Ort22", "img/foto.jpg");
 let Impo2= new Importador (2, "crojo", "rojo", "Ort22","img/foto.jpg");
 let Impo3= new Importador (3,"cblanco", "blanco", "Ort22","img/foto.jpg");
 let Impo4= new Importador (4,"cverde", "verde", "Ort22","img/foto.jpg");
@@ -798,7 +798,7 @@ let Impo5= new Importador (5,"cnaranja", "naranja", "Ort22","img/foto.jpg");
 listaDeImportador.push(Impo1,Impo2,Impo3,Impo4,Impo5);
 
 //Precarga de datos de las empresas
-let Empresa1= new Empresa (1, "administrador", "admin", "1");
+let Empresa1= new Empresa (1, "facil", "afacil", "Ati22");
 let Empresa2= new Empresa (2, "rapido", "arapido", "Ati22");
 let Empresa3= new Empresa (3, "pediloya", "apediloya", "Ati22");
 let Empresa4= new Empresa (4, "eficaz", "aeficaz", "Ati22");
