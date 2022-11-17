@@ -22,7 +22,7 @@ function cargarTablaEstadistica() {
     for (let solicitudes of listaDeSolicitudes) {
         if (solicitudes.idViaje >= 1) {
             let viaje = listaDeViajes.find(viajes => viajes.id == solicitudes.idViaje);
-            tablaspHTML += "<tr><td>" + viaje.fechaLlegada + "</td><td>" + 
+            tablaspHTML += "<tr><td>" + viaje.fechaLlegada+ "</td><td>" + 
             solicitudes.id + "</td><td>" + solicitudes.nombre + "</td><td>" + solicitudes.tipoDeMercaderia + "</td><td>" + 
             solicitudes.descripcion + "</td><td>" + solicitudes.cantidadContenedores + "</td><td>" + 
             solicitudes.idViaje + "</td></tr>";
@@ -48,7 +48,6 @@ function porcentajeDeCancelaciones() {
     let porcentaje= canceladas*100/total
     document.querySelector("#msgResultado").innerHTML=porcentaje
 }
-
 
 // ESTADISTICAS (EN PROCESO)
 function participacionDiferentesLineasCarga() {
