@@ -9,7 +9,8 @@ export class Solicitudes{
         this.puertoOrigen = unPuerto;
         this.cantidadContenedores = Ccontenedores;
         this.estado = estadoSolicitud;
-        this.idViaje = null;
         this.idImportador = idImportador;
+        this.idViaje = null;
+        
     }
 }

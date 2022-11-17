@@ -20,7 +20,7 @@ function cargarTablaEstadistica() {
     let tablaspHTML = "<table border=1>";
     tablaspHTML += "<tr><th>Fecha de llegada</th><th>Nro. de importador</th><th>Nombre de importador</th><th>Tipo de mercaderia</th><th>Descripcion</th><th>Contenedores</th><th>Nro. de empresa</th></tr>"
     for (let solicitudes of listaDeSolicitudes) {
-        if (solicitudes.idViaje != null) {
+        if (solicitudes.idViaje >= 1) {
             let viaje = listaDeViajes.find(viajes => viajes.id == solicitudes.idViaje);
             tablaspHTML += "<tr><td>" + viaje.fechaLlegada + "</td><td>" + 
             solicitudes.id + "</td><td>" + solicitudes.nombre + "</td><td>" + solicitudes.tipoDeMercaderia + "</td><td>" + 
@@ -780,18 +780,18 @@ function cargaPeligrosa (){
 //-------------------------------- PRE CARGA DE DATOS SEGUN LETRA --------------------------------//
 
 //Precarga de datos de viajes
-let Viaje1= new Viajes (1, "Buque1", 10, "rapido", "02/02/2023", 0);
-let Viaje2= new Viajes (2, "Buque2", 7, "facil", "15/01/2023");
+let Viaje1= new Viajes (1, "Buque1", 10, "rapido", "02/02/2023", 6);
+let Viaje2= new Viajes (2, "Buque2", 7, "facil", "15/01/2023", 1);
 let Viaje3= new Viajes (3, "Buque3", 8, "pediloya", "05/03/2023");
 let Viaje4= new Viajes (4, "Buque4", 3, "eficaz", "19/01/2023", 1);
 listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
 let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", 3,"PENDIENTE",1);
-let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", 4,"CONFIRMADO", 1);
-let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", 1,"PENDIENTE",1);
-let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", 2,"CONFIRMADO", 4);
-let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", 6,"CONFIRMADO", 1);
+let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", 4,"CONFIRMADO", 1, 1);
+let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", 1,"PENDIENTE",3);
+let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", 2,"CONFIRMADO", 5, 4);
+let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", 6,"CONFIRMADO", 1 , 2);
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
 
 //Precarga de datos del importador (hacer 5 como pide la letra)
