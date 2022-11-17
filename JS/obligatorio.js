@@ -5,11 +5,35 @@ import {Solicitudes} from './MODELOS/solicitudes.js';
 import {Viajes} from './MODELOS/viajes.js';
 
 // Arrays donde guardamos las precargas
-let usuarioConectado=undefined; //usuario que esta conectado
+let usuarioConectado; //usuario que esta conectado
 let listaDeImportador = new Array ();
 let listaDeEmpresas = new Array ();
 let listaDeSolicitudes = new Array ();
 let listaDeViajes = new Array ();
+
+
+
+function porcentajeDeCancelaciones(){
+    console.log(listaDeSolicitudes)
+    let total=0
+    let canceladas=0
+for (let unaSol of listaDeSolicitudes){
+    if(unaSol.idImportador== usuarioConectado.id) {
+        total++
+        if(unaSol.estado=="CANCELADO"){
+            canceladas++
+        }
+    }
+
+}
+
+let porcentaje= canceladas*100/total
+document.querySelector("#msgResultado").innerHTML=porcentaje
+
+
+
+}
+
 
 // ESTADISTICAS (EN PROCESO)
 function participacionDiferentesLineasCarga() {
@@ -395,7 +419,10 @@ function validarSolicitud(){
     }
     else {
         let id = listaDeSolicitudes.length + 1;
-        let solicitudes = new Solicitudes(id, tipoMercaderia, descMercaderia, puertoOrigen, cantiContenedores, "PENDIENTE")
+        console.log(usuarioConectado.id)
+        console.log(usuarioConectado)
+        let solicitudes = new Solicitudes(id, tipoMercaderia, descMercaderia, puertoOrigen, cantiContenedores, "PENDIENTE",usuarioConectado.id)
+        console.log(solicitudes)
         //guarda en el array
         listaDeSolicitudes.push(solicitudes); 
         alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
@@ -629,7 +656,7 @@ document.querySelector("#btnSolicitudespendientes").addEventListener("click", so
 document.querySelector("#btnregistrarImportador").addEventListener("click", irRegistrar);
 document.querySelector("#btnInicioSesion").addEventListener("click", iniciarSesion );
 document.querySelector("#btnLogout").addEventListener("click", irHome);
-document.querySelector("#btnPorcentajeEstadistica").addEventListener("click", participacionDiferentesLineasCarga)
+document.querySelector("#btnPorcentajeEstadistica").addEventListener("click", porcentajeDeCancelaciones)
 
 function irHome(){
     ocultarTodo()
@@ -738,9 +765,9 @@ let Viaje4= new Viajes (4, "Buque4", 3, "eficaz", "19/01/2023", 1);
 listaDeViajes.push(Viaje1,Viaje2,Viaje3,Viaje4);
 
 //Precarga de solicitudes (hacer 5 como pide la letra)
-let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", 3,"PENDIENTE");
+let Solicitud1= new Solicitudes (1, "CARGA_GENERAL", "Juguetes de niños de 3 a 5 años", "Puerto de China", 3,"PENDIENTE",1);
 let Solicitud2= new Solicitudes (2, "CARGA_GENERAL", "Ropa de hombres y mujeres", "Puerto de Estados Unidos", 4,"CONFIRMADO", 1);
-let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", 1,"PENDIENTE");
+let Solicitud3= new Solicitudes (3, "CARGA_PELIGROSA", "Armas", "Puerto de Estados Unidos", 1,"PENDIENTE",1);
 let Solicitud4= new Solicitudes (4, "REFIGERADO", "Pollo congelado", "Puerto de Brasil", 2,"CONFIRMADO", 4);
 let Solicitud5= new Solicitudes (5, "CARGA_GENERAL", "Articulos varios de limpieza", "Puerto de China", 6,"CONFIRMADO", 1);
 listaDeSolicitudes.push(Solicitud1,Solicitud2,Solicitud3,Solicitud4,Solicitud5);
