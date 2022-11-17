@@ -343,7 +343,7 @@ function validarCrearViaje(){
     
     // Validaciones 
     if (nombreBuque == "" || maxCont == ""|| fechaLlegada == "" ) {
-        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+        alert ("Todos los campos son obligatorios. Por favor vuelve a intentarlo.")
     }
     else if(fechaLlegada < campoFecha.min){
         alert ("La fecha debe ser posterior al dia de hoy")
@@ -388,7 +388,7 @@ function validarSolicitud(){
     let cantiContenedores = getCantidadContenedores();
     // Validaciones 
     if (tipoMercaderia == "" || descMercaderia == ""|| puertoOrigen== "" || cantiContenedores == "" ) {
-        alert ("Todos los campos son obligatorios. Por favor vuelve a internarlo.")
+        alert ("Todos los campos son obligatorios. Por favor vuelve a intentarlo.")
     }
     else if(cantiContenedores < 1){
         alert ("Se debe ingresar al menos 1 contenedor para poder realizar la solicitud")
