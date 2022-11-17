@@ -13,6 +13,21 @@ let listaDeViajes = new Array ();
 
 
 
+//----------------------------------------------------------------------------------------------------//
+//-------------------------------- ESTADISTICAS --------------------------------//
+
+function cargarTablaEstadistica(){
+    let tablaspHTML = "<table border=1>";
+    tablaspHTML += "<tr><th>Fecha de llegada</th><th>Nro. de importador</th><th>Nombre de importador</th><th>Tipo de mercaderia</th><th>Descripcion</th><th>Contenedores</th><th>Nro. de empresa</th></tr>"
+    for(let solicitudes of listaDeSolicitudes){
+        if (solicitudes.idViaje != null)
+        let viaje = listaDeViajes.find(viajes => viajes.id == );
+        tablaspHTML += "<tr><td>"+solicitudes.nombre+"</td><td>"+importador.id+"</td></tr>";
+    }
+    tablaspHTML += "</table>";
+    document.querySelector("#tblHabilitarImpo").innerHTML= tablaspHTML;
+}
+
 function porcentajeDeCancelaciones() {
     console.log(listaDeSolicitudes);
     let total = 0;
