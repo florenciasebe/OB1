@@ -33,7 +33,6 @@ function cargarTablaEstadistica() {
 }
 
 function porcentajeDeCancelaciones() {
-    console.log(listaDeSolicitudes);
     let total = 0;
     let canceladas = 0;
     for (let unaSol of listaDeSolicitudes) {
@@ -49,7 +48,7 @@ function porcentajeDeCancelaciones() {
     document.querySelector("#msgResultado").innerHTML=porcentaje
 }
 
-// ESTADISTICAS (EN PROCESO)
+// ESTADISTICAS 
 function participacionDiferentesLineasCarga() {
     document.querySelector("#msgResultadoParticipacion").innerHTML = "";
     let totalEmpresa1 = 0;
@@ -437,10 +436,7 @@ function validarSolicitud(){
     }
     else {
         let id = listaDeSolicitudes.length + 1;
-        console.log(usuarioConectado.id)
-        console.log(usuarioConectado)
         let solicitudes = new Solicitudes(id, tipoMercaderia, descMercaderia, puertoOrigen, cantiContenedores, "PENDIENTE",usuarioConectado.id)
-        console.log(solicitudes)
         //guarda en el array
         listaDeSolicitudes.push(solicitudes); 
         alert ("Solicitud creada con exito. Dirijase a solicitudes pendientes para ver el estado del pedido")
