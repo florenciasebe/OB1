@@ -706,6 +706,7 @@ function mostrarEstadisticas (){
     document.querySelector("#divSalir").style.display="block"
     document.querySelector("#divMenuImportador").style.display="block"
     document.querySelector("#divEstadisticas").style.display="block"
+    cargarTablaEstadistica()
 }
 function nuevaSolicitud (){
     ocultarTodo()
