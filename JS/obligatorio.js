@@ -30,8 +30,6 @@ for (let unaSol of listaDeSolicitudes){
 let porcentaje= canceladas*100/total
 document.querySelector("#msgResultado").innerHTML=porcentaje
 
-
-
 }
 
 
