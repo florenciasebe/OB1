@@ -13,25 +13,21 @@ let listaDeViajes = new Array ();
 
 
 
-function porcentajeDeCancelaciones(){
-    console.log(listaDeSolicitudes)
-    let total=0
-    let canceladas=0
-for (let unaSol of listaDeSolicitudes){
-    if(unaSol.idImportador== usuarioConectado.id) {
-        total++
-        if(unaSol.estado=="CANCELADO"){
-            canceladas++
+function porcentajeDeCancelaciones() {
+    console.log(listaDeSolicitudes);
+    let total = 0;
+    let canceladas = 0;
+    for (let unaSol of listaDeSolicitudes) {
+        if (unaSol.idImportador == usuarioConectado.id) {
+            total++;
+            if (unaSol.estado == "CANCELADO") {
+                canceladas++;
+            }
         }
+
     }
-
-}
-
-let porcentaje= canceladas*100/total
-document.querySelector("#msgResultado").innerHTML=porcentaje
-
-
-
+    let porcentaje= canceladas*100/total
+    document.querySelector("#msgResultado").innerHTML=porcentaje
 }
 
 
